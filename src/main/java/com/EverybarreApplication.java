@@ -7,10 +7,10 @@ import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 
 @SpringBootApplication
 //@EnableAutoConfiguration(exclude={DataSourceAutoConfiguration.class})
-public class FullpartyApplication {
+public class EverybarreApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(FullpartyApplication.class, args);
+		SpringApplication.run(EverybarreApplication.class, args);
 	}
 
 }

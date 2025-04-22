@@ -10,6 +10,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
+import java.text.ParseException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.TextStyle;
@@ -21,6 +22,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.UUID;
+import java.util.logging.Logger;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -35,8 +37,6 @@ import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
-import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -54,15 +54,12 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 
 @Controller
-public class FullpartController{	
+public class BarreController{	
 	@Autowired
 	private bareService service;
 	
 	  @RequestMapping(value="/") 
 	  public String login() { return "index"; }
-	   
-	  @RequestMapping(value="/index.do") 
-	  public String main() { return "index"; }
 	  
 	  @RequestMapping(value="/admin_schedule.do") 
 	  public String admin_schedule(HttpServletRequest request) { 
@@ -173,23 +170,11 @@ public class FullpartController{
 	          return "redirect:/everybare.do"; // 일반 사용자 페이지로 리다이렉트
 	      }}
 	  
-	  @RequestMapping(value="/privacy.do") 
-	  public String privacy() { return "privacy"; }
-	  
-	  @RequestMapping(value="/provision.do") 
-	  public String provision() { return "provision"; }
-	  
 	  @RequestMapping(value="/booking.do") 
 	  public String booking() { return "res_step0"; }
 	  
-	  @RequestMapping(value="/Map.do")
-	  public String map() { return "Map"; } 
-	  
 	  @RequestMapping(value="/res.do")
 	  public String res() { return "res_step0"; }
-	 	
-	  @RequestMapping(value="/information.do") 
-	  public String information() { return "information"; }
 	  
 	  @RequestMapping(value="/everybare.do")
 	  public String everybare(HttpSession session, Model model) throws Exception { 
