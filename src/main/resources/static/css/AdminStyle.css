@@ -1,0 +1,374 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display+SC&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+
+:root {
+    --content-size: 18px;
+    --headline-size : 25px;
+    --bottom-color : #ccc;
+    --background-color :#f9f9f9;
+}
+a {
+	text-decoration: none;
+}
+table {
+	border-collapse: separate;
+	border-spacing: 0 20px;
+	width: 100%;
+}
+table td {
+	text-align: center;
+	font-size: var(--content-size);
+}
+
+/* 관리자 페이지 상단 */
+.admin_topArea {
+	padding: 50px 0;
+	font-size: 30px;
+	font-weight: normal;
+	width: 1400px;
+    margin: 0 auto;
+    margin-top: 100px;
+}
+.admin_topArea .top_tit {
+	font-weight: 500;
+	font-size: 60px;
+	font-family: 'Playfair Display SC', serif;
+}
+.admin_manage {
+    width: 1400px;
+    margin: 0 auto;
+    padding-bottom: 310px;
+  	font-family: 'Noto Sans KR', sans-serif;
+  	font-size: var(--content-size);
+}
+
+/* 관리 탭 영역*/
+.titArea ul{
+	display: flex;
+	text-align: center;
+	
+}
+.titArea ul #room_click, #res_click, #member_click{
+	width: 30%;
+	padding: 5px 20px;
+	
+}
+.titArea .off{
+	border-right : 1px solid #aaa;
+	border-left: 1px solid #aaa;
+	border-top: 1px solid #aaa;
+	border-bottom : 1px solid black;
+	color: #666;
+}
+.titArea .on{
+	border-left: 1px solid black;
+	border-top: 1px solid black;
+	border-right : 1px solid black;
+	border-bottom : hidden;
+}
+.titArea ul::after {
+	content: "";
+	width: 100%;
+	border-bottom : 1px solid black;
+}
+
+.admin_search {
+	margin: 20px 0;
+	padding: 20px 0;
+	background-color: var(--background-color);
+}
+#hotel {
+	align-items: center;
+}
+#bin{
+	content: "";
+	width:15%;
+}
+#roomName {
+	padding: 2px 10px;
+}
+
+/* 버튼 css */
+#search_btn, #user_btn, #member_btn {
+	padding: 0 10px;
+	background-color: transparent;
+	border : 1px solid black;
+	cursor: pointer;
+}
+#res_btn {
+	padding: 2px 15px;
+	background-color: black;
+	color: white;
+	border : 1px solid black;
+	cursor: pointer;
+	font-size: 15px;
+	width: 60%;
+	
+}
+
+/* 객실관리 css */
+.room_manage table {
+	padding : 20px 10px 40px 10px;
+	border-bottom: 1px solid var(--bottom-color);
+}
+
+.room_manage .roomname td {
+	font-size: var(--headline-size);
+	padding-left: 50px;
+}
+
+
+.room_manage img{
+	width: 100%;
+}
+.room_manage .img{
+	padding: 10px 0 10px 50px;
+}
+
+
+/* 객실 검색  */
+.room_search img{
+	width: 100%;
+}
+.room_search .roomname td {
+	font-size: 30px;
+	padding-left: 50px;
+}
+.room_search .img {
+	padding: 10px 0 10px 50px;
+}
+.room_search ul {
+	padding-left: 50px;
+}
+
+/* 객실 검색 상세내역 */
+.content_info_st, .content_info_d, .content_info_su, .content_info_p{
+	display: none;
+	padding: 20px 50px 20px 50px;
+}
+.content_info_st p {
+	font-size: 20px;
+	font-weight: bold;
+}
+#check_st, #check_d, #check_su, #check_p{
+	padding: 0 10px;
+	background-color: transparent;
+	border : 1px solid black;
+	cursor: pointer;
+}
+.content_info_st td{
+	border-bottom: 1px solid var(--bottom-color);
+	padding : 3px 6px;
+}
+.content_info_st th{
+	border-top: 1px solid #666;
+	border-bottom: 1px solid var(--bottom-color);
+	font-weight: bold;
+	padding : 3px 6px;
+}
+.content_info_st #st_id, #st_money{
+	width: 10%;
+}
+.content_info_st #st_in, #st_person, #st_add, #st_req{
+	width: 20%;
+}
+.content_info_d td{
+	border-bottom: 1px solid var(--bottom-color);
+	padding : 3px 6px;
+}
+.content_info_d th{
+	border-top: 1px solid #666;
+	border-bottom: 1px solid var(--bottom-color);
+	font-weight: bold;
+	padding : 3px 6px;
+}
+.content_info_d #d_id, #d_money{
+	width: 10%;
+}
+.content_info_d #d_in, #d_person, #d_add, #d_req{
+	width: 20%;
+}
+.content_info_su td{
+	border-bottom: 1px solid var(--bottom-color);
+	padding : 3px 6px;
+}
+.content_info_su th{
+	border-top: 1px solid #666;
+	border-bottom: 1px solid var(--bottom-color);
+	font-weight: bold;
+	padding : 3px 6px;
+}
+.content_info_su #su_id, #su_money{
+	width: 10%;
+}
+.content_info_su #su_in, #su_person, #su_add, #su_req{
+	width: 20%;
+}
+.content_info_p td{
+	border-bottom: 1px solid var(--bottom-color);
+	padding : 3px 6px;
+}
+.content_info_p th{
+	border-top: 1px solid #666;
+	border-bottom: 1px solid var(--bottom-color);
+	font-weight: bold;
+	padding : 3px 6px;
+}
+.content_info_p #p_id, #p_money{
+	width: 10%;
+}
+.content_info_p #p_in, #p_person, #p_add, #p_req{
+	width: 20%;
+}
+/* 예약관리 페이지 */
+.res_manage {
+	padding: 0 50px;
+}
+.res_manage #res_none td{
+	padding: 100px 0;
+}
+.res_manage .off{
+	display: none;
+}
+.res_manage .on{
+	display: "";
+}
+.res_manage td{
+	border-bottom: 1px solid var(--bottom-color);
+	padding : 3px 6px;
+}
+.res_manage #res_none td{
+	border-bottom: none;
+}
+.res_manage #res_cont1 #user_none{
+	border-bottom: none;
+}
+.res_manage th{
+	border-top: 1px solid #666;
+	border-bottom: 1px solid var(--bottom-color);
+	font-weight: bold;
+	padding : 3px 6px;
+}
+.res_manage #res_person, #res_room, #res_req{
+	width: 15%;
+}
+.res_manage #res_money{
+	width: 10%;
+}
+.res_manage #res_period, #res_add {
+	width: 20%;
+}
+
+
+
+.room_manage .off{
+	display: none;
+}
+
+.room_manage .on{
+	display: "";
+}
+
+
+.room_search .off{
+	display: none;
+}
+.room_search .on{
+	display: "";
+}
+.admin_search .off{
+	display: none;
+}
+.admin_search .on{
+	display: "";
+}
+.admin_search .off{
+	display: none;
+}
+.admin_search .on{
+	display : "";
+}
+
+/* 회원관리 페이지 */
+.member_manage {
+	padding: 0 50px;
+}
+.member_manage .off{
+	display: none;
+}
+.member_manage .on{
+	display: "";
+}
+.member_manage #member_search1 #user_none{
+	border-bottom: none;
+}
+.member_manage td{
+	border-bottom: 1px solid var(--bottom-color);
+	padding : 3px 6px;
+}
+
+.member_manage th {
+	border-top: 1px solid #666;
+	border-bottom: 1px solid var(--bottom-color);
+	font-weight: bold;
+	padding : 3px 6px;
+}
+
+.member_manage #mem_point{
+	width: 5%;
+}
+.member_manage #mem_phone{
+	width: 15%;
+}
+.member_manage #mem_id, #mem_name {
+	width: 10%;
+}
+.member_manage #mem_email{
+	width: 20%;
+}
+.member_manage #mem_addr{
+	width: 40%;
+}
+/* 회원관리 검색 페이지 */
+.search_member {
+	padding: 0 50px;
+}
+.search_member #mem_point1{
+	width: 5%;
+}
+.search_member #mem_id1, #mem_name1{
+	width: 10%;
+}
+.search_member #mem_email1, #mem_phone1{
+	width: 15%;
+}
+.search_member #mem_addr1{
+	width: 40%;
+}
+.search_member .off{
+	display: none;
+}
+.search_member .on{
+	display: "";
+}
+
+.search_member td{
+	border-bottom: 1px solid var(--bottom-color);
+	padding : 3px 6px;
+}
+
+.search_member th {
+	border-top: 1px solid #666;
+	border-bottom: 1px solid var(--bottom-color);
+	font-weight: bold;
+	padding : 3px 6px;
+}
+#mem_del, #res_del {
+	padding: 0 10px 0 8px;
+	background-color: transparent;
+	border : 1px solid black;
+	font-size: 15px;
+	width: 90%;
+	cursor: pointer;
+}

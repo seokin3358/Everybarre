@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="cal.css" />
+    <link rel="stylesheet" href="madal_pop.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"
+    />
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.0/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="jqery.bpopup-0.1.1.min.js"></script>
+    <script type="text/javascript" src="cal.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="modal_button" class="modal_button">모달창</div>
+
+    <!-- 팝업창란 -->
+    <div id="element_to_pop_up">
+      <a class="b-close">
+        <i class="fas fa-times"></i>
+      </a>
+      <div id="datepicker"></div>
+    </div>
+    <input type="text" id="dates" />
+    <input type="text" id="checkin" />
+    <input type="text" id="checkout" />
+    <script>
+      (function ($) {
+        $(function () {
+          $("#modal_button").bind("click", function (e) {
+            e.preventDefault();
+            $("#element_to_pop_up").bPopup({});
+          });
+        });
+      })(jQuery);
+
+      $(document).ready(function () {
+        $("span.ui-icon").empty();
+
+        $(".a.ui-datepicker-prev .ui-icon").append("append success!");
+      });
+    </script>
+  </body>
+</html>

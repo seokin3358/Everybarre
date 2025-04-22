@@ -1,0 +1,150 @@
+@charset "UTF-8";
+
+.topArea{
+	display: table;
+    position: relative;
+    width: 1400px;
+    margin: 0 auto;
+    margin-top: 100px;
+}
+
+.topInner{
+	display: table-cell;
+    padding: 30px 0 30px;
+}
+
+.titDep1{
+	font-weight: 500;
+	font-size: 60px;
+	font-family: 'Playfair Display SC', serif;
+}
+
+.pageGuide{
+	margin-top: 18px;
+    font-size: 20px;
+    letter-spacing: -.01em;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+.inner {
+    position: relative;
+    width: 1400px;
+    margin: 0 auto;
+    padding-bottom: 100px;
+}
+
+.dateSelect > li {
+    padding: 21px 20px 22px;
+    border-top: 1px solid #ccc;
+}
+
+.listTit{
+	font-size: 22px;
+	font-weight: 300;
+	font-family: 'Noto Sans KR', sans-serif;
+}
+
+.intValue {
+    position: absolute;
+    right: 76px;
+    font-size: 22px;
+    font-family: gothamL,notokrL;
+    letter-spacing: -.04em;
+}
+
+.dToggleBtn{
+    font-family: 'Noto Sans KR', sans-serif;
+    letter-spacing: -.04em;
+    float: right;
+}
+
+.pToggleBtn{
+	font-family: 'Noto Sans KR', sans-serif;
+	letter-spacing: -.04em;
+    float: right;
+}
+
+.dToggleInner .hasDatepicker{
+	align-content: center;
+    margin: 30px auto !important;
+    width: 45%;
+}
+
+.dateTexts{
+	float: right;
+	margin-right: 20px;
+	font-family: 'Noto Sans KR', sans-serif;
+	font-weight: 300;
+	font-size: 22px;
+}
+.countText{
+	float: right;
+	margin-right: 20px;
+	font-family: 'Noto Sans KR', sans-serif;
+	font-weight: 300;
+	font-size: 22px;
+}
+
+.count{
+	display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.count_span{
+	 width: 20%;
+    text-align: center;
+    border-bottom: 1px solid #ccc;
+}
+
+.res_submit_area{
+	text-align: center;
+	margin-top: 80px;
+}
+
+.res_submit{
+	 background: #151515 !important;
+    color: #fff !important;
+    height: 50px;
+    padding: 0 25px;
+    font-size: 15px;
+    letter-spacing: -.01em;
+    border-style: none;
+    min-width: 180px;
+}
+
+.fa-chevron-down{
+	margin-top: 13px;
+}
+
+.resGuide{
+	margin-top: 18px;
+	font-weight: 300;
+    font-size: 18px;
+    letter-spacing: -.01em;
+    font-family: 'Noto Sans KR', sans-serif;
+    padding: 5px;
+    color: #888;
+}
+
+.nightResult::before {
+	 content: '';
+    display: inline-block;
+    position: relative;
+    top: 3px;
+    width: 1px;
+    height: 22px;
+    background: #ccc;
+    margin: 0 13px 0 13px;
+}
+
+.countbefore::before {
+	 content: '';
+    display: inline-block;
+    position: relative;
+    top: 3px;
+    width: 1px;
+    height: 22px;
+    background: #ccc;
+    margin: 0 13px 0 13px;
+}

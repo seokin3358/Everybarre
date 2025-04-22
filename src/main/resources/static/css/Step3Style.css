@@ -1,0 +1,315 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display+SC&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
+
+/* topArea */
+
+.topArea{
+	position: relative;
+	width: 85%;
+	margin: 0 auto;
+	margin-top: 10px;
+	max-width: 1400px;
+	padding: 97px 0 30px;
+
+}
+.topArea .topInner{
+	display:table-cell;
+	padding: 50px 0 50px;
+}
+
+.titDep1, .titDep2{
+	font:500 60px playfair;
+	font-family: 'Playfair Display SC', serif;
+	color: #151515;
+	font-feature-settings:'lnum', 'pnum'
+}
+.titDep2{
+	font:500 40px playfair;
+	font-family: 'Playfair Display SC', serif;
+	color: #151515;
+	font-feature-settings:'lnum', 'pnum'
+}
+.infoArea .btn {
+	padding: 11px 20px 0 20px;
+    min-width: auto;
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    box-sizing: border-box;
+    border: 1px solid #000;
+    font-size: 14px;
+    letter-spacing: -.01em;
+    font-family: 'Noto Sans KR';
+    font-weight: 300;
+    height: 50px;
+    margin: 10px;
+}
+.stepWrap ol {
+	display: flex;
+	
+}
+/* .stepWrap ol li {
+	padding: 0 20px 0 0;
+} */
+.stepWrap ol li.on {
+	padding-right: 20px;
+}
+/* .stempWrap ol li.on:before {
+	background: black;
+	color: white;
+	border-color: black;
+} */
+
+.stepWrap ol li.prev:before {
+	background: #9b9fa8;
+	color: black;
+	border-color: #9b9fa8;
+	content: "\f00c";
+	width: 40px;
+	height: 40px;
+	line-height: 37px;
+	border-radius: 40px;
+	display: inline-block;
+	text-align: center;
+	margin-right: 20px;
+	font-family: FontAwesome;
+}
+
+.stepWrap ol li.on:before {
+	background: black;
+	color: white;
+	border-color: black;
+	content: '2';
+	width: 40px;
+	height: 40px;
+	line-height: 37px;
+	border-radius: 40px;
+	display: inline-block;
+	text-align: center;
+	margin-right: 20px;
+}
+.stepWrap ol li.on:after {
+	content:'';
+	display: inline-block;
+	width: 50px;
+	height: 1px;
+	background-color: #aaa;
+	margin-left: 20px;
+	
+}
+.stepWrap ol li.next:before {
+	content: '3';
+	width: 40px;
+	height: 40px;
+	line-height: 37px;
+	border-radius: 40px;
+	color: #9b9fa8;
+	border: 1px solid #9b9fa8;
+	background: white;
+	display: inline-block;
+	text-align: center;
+	margin-right: 20px;
+}
+
+.pageGuide {
+    margin-top: 18px;
+    font-size: 15px;
+    letter-spacing: -.01em;
+    font-family:  'Noto Sans KR';
+    font-weight: 300;
+}
+
+.stepWrap{
+	margin-top: 18px;
+	font-size: 17px;
+    letter-spacing: -.01em;
+    font-family:  'Noto Sans KR';
+    font-weight: 300;
+}
+ .container {
+ }
+.selResult {
+	margin-bottom: 100px;
+	background: #f9f9f9;
+}
+.selResult .inner {
+    position: relative;
+    padding: 42px 0;
+    margin: 0 auto;
+}
+.inner {
+	position: relative;
+    width: 1400px;
+    margin: 0 auto;
+}
+.infoArea {
+	display: flex;
+	justify-content: space-between;
+}
+
+.infoArea dl{
+	padding-right: 110px;
+}
+
+
+.infoArea dl dt {
+	font-family: 'Montserrat', sans-serif;
+	font-size: 16px;
+    padding-bottom: 5px;
+}
+
+.infoArea dl dd {
+	font-size: 20px;
+    letter-spacing: -.01em;
+    font-family:  'Noto Sans KR';
+    font-weight: 300;
+}
+.step2_content {
+	display: flex;
+	justify-content: space-between;
+	width: 1400px;
+    margin: 0 auto;
+}
+.option .opCont {
+	padding: 20px;
+	border-top: 1px solid black;
+}
+.option .titDep2 {
+	margin-bottom: 10px;
+}
+.opCont .opTit {
+	font-size: 16px;
+	padding: 40px 0 12px;
+} 
+.opCont .numPeople{
+	margin-left: 418px;
+	margin-bottom: 5px;
+}
+.opCont .numPeople2{
+	margin-left: 400px;
+}
+.opCont .numPeople3{
+	margin-left: 385px;
+}
+.option {
+	padding-bottom: 180px;
+	padding-right: 100px;
+}
+.option #opBtn {
+	width: 33px;
+	height: 33px;
+	background-color: transparent;
+	border : 1px solid black;
+	cursor: pointer;
+	font-size: 20px;
+	margin-bottom: 5px;
+}
+.option #result, #result2, #result3{
+	padding: 0 30px;
+	font-size: 20px;
+}
+
+.addOption .peopleOption{
+	display: flex;
+	min-height: 35px;
+}
+.addOption span+span:before{
+	display: inline-block;
+	content: '';
+	width: 1px;
+	height: 18px;
+	background: #ccc;
+	margin: 0 20px;
+	vertical-align: middle;
+}
+.addOption .txtGuide {
+	margin-top: 14px;
+}
+p.txtGuide, .txtGuide li{
+	color: #888;
+	margin-left: 16px;
+	font-size: 16px;
+}
+.option textarea {
+	width: 100%;
+	height: 160px;
+	border: 1px solid #ccc;
+	padding: 10px 15px;
+}
+.option .categoryTxt {
+	margin-bottom: 30px;
+}
+.rCont.floating{
+	margin-top: 50px;
+}
+
+.rCont .rsvList > li.toggleOn {
+	border: 1px solid black;
+}
+
+.rCont .rsvList > li {
+	padding: 34px 40px 28px;
+	border: 1px solid #ccc;
+}	
+.rCont .price {
+	font-size: 36px;
+	font-family: 'Playfair Display SC', serif;
+}
+.rsvList .total_toggle{
+	border: none;
+	padding: 10px;
+	margin-left: 35px;
+	position: absolute;
+    margin-top: 7px;
+}
+.rsvLsit .price #totalResult{
+	font-size: 36px;
+}
+.toggleCont .toggleInner{
+	
+}
+.toggleCont .infoData {
+	padding-bottom: 20px;
+	border-bottom: 1px dashed #ccc;
+	margin-bottom: 20px;
+}
+.totalCont .totalPrice{
+	padding: 80px 0 20px;
+}
+.totalCont .totalPrice .subTxt{
+	font-size: 18px;
+	text-align: end;
+	margin-bottom: 30px;
+}
+.totalCont .totalPrice .price {
+	font-size: 36px;
+}
+.btnArea .btn{
+	padding: 0 10px;
+	background-color: transparent;
+	border : 1px solid black;
+	cursor: pointer;
+	width: 100%;
+	height: 60px;
+}
+.infoData #rDateResult {
+	float: left;
+}
+.infoData #roomPriceResult, #aBrResult, #cBrResult, #bedResult, #taxResult {
+	float: right;
+}
+
+/* 테스트용 */
+.numPeople input::before {
+    content: '';
+    display: block;
+    width: 33px;
+    height: 33px;
+}
+
+.numPeople input.btnUp::before {
+	content: "\f00c";
+    font-family: FontAwesome;
+}

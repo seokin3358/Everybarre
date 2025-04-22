@@ -1,0 +1,636 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display+SC&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+/* 
+ * 마이 페이지 메인
+ */
+
+.myPage_header {
+	position: relative;
+	width: 85%;
+	margin: auto;
+	margin-top: 150px;
+	max-width: 1400px;
+	padding: 97px 0 90px;
+}
+
+
+.header_title {
+	font: 500 60px playfair;
+	font-family: 'Playfair Display SC', serif;
+	color: #151515;
+	font-feature-settings: 'lnum', 'pnum';
+}
+
+.header_txt {
+	margin-top: 5px;
+	font-size: 22px;
+	font-family: 'Noto Sans KR', sans-serif;
+	letter-spacing: -.01em;
+	opacity: 0.8;
+}
+
+.myPage {
+	position: relative;
+	width: 85%;
+	margin: auto;
+	margin-top: 20px;
+	padding-bottom: 100px;
+	max-width: 1400px;
+	min-height: 1400px;
+}
+
+.myPage_inner {
+	width: 20%;	
+	float: left;
+}
+
+.innerBox {
+	font-size: 25px;
+    font-family: 'Noto Sans KR', sans-serif;
+	padding: 50px 0px 0px 30px;
+    background-color: #f9f9f9;
+    height: 1200px;
+}
+
+.inner_menu {
+	
+	margin-bottom: 20px;
+    letter-spacing: -.025em;
+    font-size: 25px;
+}
+
+.menu_list {
+	opacity: 0.8;
+    margin-bottom: 30px;
+    font-size: 22px;
+    letter-spacing: -.025em;
+    line-height: 2.5;
+    font-size: 18px;
+}
+
+.mainpage {
+	text-align: center;
+    width: 80%;
+    display: table;
+    margin-block: auto;
+}
+
+.mainpage_box {
+	margin: 150px 0;
+	font-size: 22px;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+.welcom_msg {
+	margin-bottom: 60px;
+    font-size: 35px;
+    
+}
+
+.resPoint_box {
+	display: -webkit-box;
+	width: 80%;
+    margin: auto;
+}
+
+.resPoint_count {
+	border: 1px solid;
+   	width: 50%;
+    padding: 15px;
+    font-size: 25px;
+    letter-spacing: -.025em;
+    line-height: 1.5;
+}
+
+.resPoint_point {
+	border: 1px solid;
+   	width: 50%;
+    padding: 15px;
+    font-size: 25px;
+    letter-spacing: -.025em;
+    line-height: 1.5;
+    border-left: 0;
+}
+
+.mypageCount {
+	font-family: 'Playfair Display SC', serif;
+    font-size: 30px;
+}
+
+.myPage_box {
+	width: 80%;
+    display: table;
+}
+
+.myPage_box_inner {
+	margin: 50px;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 22px;
+    
+}
+
+.headline {
+	font-size: 30px;
+	
+    letter-spacing: -.025em;
+    margin-bottom: 25px;
+}
+
+.myPage_container {
+	display: flex;
+	font-size: 22px;
+}
+
+/*
+ *  예약내역 & 예약변경
+ */
+
+.resListChg_on {
+	
+	width: 50%;
+    height: 50px;
+    border: 1.2px solid black;
+    border-bottom: 0;
+    text-align: center;
+    margin-bottom: 30px;
+    letter-spacing: -.025em;
+    line-height: 2;
+}
+
+.resListChg_off {
+	
+	width: 50%;
+	height: 50px;
+	border: 1.2px solid black;
+	border-left: hidden;
+    border-right: hidden;
+    border-top: hidden;
+	text-align: center;
+	margin-bottom: 30px;
+    letter-spacing: -.025em;
+    line-height: 2;
+}
+
+.res_Container {
+	font-size: 25px;
+}
+
+.res_content {
+	border: 2px solid #ccc;
+	width: 49%;
+	margin: 10px 0;
+	padding: 10px 15px;
+	display: inline-block;
+}
+
+.reserved {
+	color: #989442;
+	
+}
+
+.res_info {
+	font-size: 18px;
+    letter-spacing: -.025em;
+    opacity: 0.8;
+    margin: 10px 0;
+}
+
+.res_margin{
+	font-size: 18px;
+	margin-top: 30px;
+	letter-spacing: 0px;
+}
+
+.noRes_box {
+	text-align: center;
+}
+
+.noRes_inner {
+    width: 50%;
+    display: inline-block;
+    padding: 20px 0;
+}
+
+.noRes_inner li.noRes_Point {
+	font-size: 50px;
+    
+}
+
+.goRes_btn{
+	background: #151515 !important;
+    color: #fff !important;
+    height: 40px;
+    padding: 0 40px;
+    font-size: 15px;
+    border-style: none;
+    margin-top: 20px;
+}
+
+.resInfo_title {
+	padding: 10px 0;
+	
+}
+
+.resInfo_inner {
+	border-top: 2px solid #ccc;
+	border-bottom: 2px solid #ccc;
+	padding: 20px 10px 10px;
+	font-size: 18px
+}
+
+.resList_box {
+    padding: 0 20px;
+    margin-bottom: 70px;
+    letter-spacing: -.025em;
+    line-height: 2;
+}
+
+.resCount {
+	margin-bottom: 15px;
+}
+
+.resChng_btn {
+	background: #151515 !important;
+    color: #fff !important;
+    width: 120px;
+    height: 40px;
+    font-size: 20px;
+    letter-spacing: -.01em;
+    border-style: none;
+    float: right;
+    font-size: 16px;
+	
+}
+
+.room_img {
+	display: inline-block;
+}
+
+.res_container2 {
+	font-size: 22px;
+    display: inline-block;
+    position: absolute;
+    margin: 20px 50px;
+    line-height: 2;
+}
+
+.res_block {
+	display: block;
+}
+
+.res_change {
+	display: flex;
+}
+
+.resList_box2 {
+    padding: 20px 20px;
+    margin-bottom: 70px;
+    letter-spacing: -.025em;
+    line-height: 2;
+}
+
+
+.box_inner{
+	text-align: center;
+	margin-bottom: 60px;
+}
+
+.box_inner2 {
+	margin-bottom: 60px;
+}
+
+.request_box {
+	width: 100%;
+	margin-top: 8px;
+	font-size: 20px;
+}
+
+.boxCSS {
+	border: 0;
+	border-bottom: 1px solid;
+	margin: 0 30px 0 10px;
+	text-align: center;
+	margin-bottom: 10px;
+}
+
+.boxCSS:after{
+	border-bottom: 1px solid;
+}
+
+.resPrice_box {
+	margin-bottom: 40px;
+}
+
+.resPrice_inner {
+	position: relative;
+    display: table;
+    width: 100%;
+}
+
+.resPrice_list {
+	display: table-cell;
+    vertical-align: top;
+    padding: 0 50px 0 0;
+    
+}
+
+.price_title {
+	color: #989442;
+    margin-bottom: 5px;
+    
+}
+
+.infoData {
+	margin: 0;
+    padding: 0;
+    list-style: none;
+    font-weight: 500;
+}
+
+.data1 {
+	float: left;
+}
+
+.data2 {
+	float: right;
+    text-align: right;
+}
+
+.box_inner3{
+	border: 0;
+	border-top: 2px solid #ccc;
+	
+	background-color: #f9f9f9;
+	text-align: center;
+	padding: 20px 0;
+}
+
+.total_price {
+	font-family: 'Playfair Display SC', serif;
+    font-size: 40px;
+}
+
+.box_inner4{
+	border: 0;
+	text-align: center;
+	padding: 40px 0 20px;
+}
+
+.submit_btn {
+	font-size: 20px;
+	font-family: 'Noto Sans KR', sans-serif;
+	background: #151515 !important;
+    color: #fff !important;
+    height: 60px;
+    padding: 0 25px;
+    width: 150px;
+    border-style: none;
+}
+
+.reset_btn {
+	font-size: 20px;
+	font-family: 'Noto Sans KR', sans-serif;
+    background: #fff !important;
+    height: 60px;
+    padding: 0 25px;
+    width: 150px;
+    border: 0.1px solid; 
+}
+
+/* 
+ * 회원 정보 수정
+ */
+ 
+.myInfo {
+	font-size: 18px;
+	
+}
+
+.chgTxt_no {
+	font-size: 20px;
+	border: 1px solid black;
+	border-left: hidden;
+	border-right: hidden;
+	border-top: hidden;
+	min-width: 200px;
+	height: 50px;
+	margin-bottom: 25px;
+	margin-right: 10px;
+}
+
+.chgTxt {
+	font-size: 20px;
+	border: 1px solid black;
+	border-left: hidden;
+	border-right: hidden;
+	border-top: hidden;
+	opacity: 0.5;
+	min-width: 250px;
+	height: 50px;
+	margin-bottom: 25px;
+}
+
+.addrChg {
+	color: #989442;
+    font-size: 14px;
+}
+
+.DBaddr{
+	font-size: 20px;
+	width: 100%;
+	border-left: hidden;
+	border-right: hidden;
+	border-top: hidden;
+	margin-bottom: 25px;
+	height: 50px;
+	
+}
+
+input[type='radio'],
+input[type='radio']:checked {
+  appearance: none;
+  width: 15px;
+  height: 15px;
+  border-radius: 100%;
+  margin-right: 15px;	
+  margin-bottom: 4px;
+}
+
+input[type='radio'] {
+  background-color: white;
+  border: 0.1px solid black;
+}
+input[type='radio']:checked {
+  background-color: black;
+}
+
+.UserGen{
+	margin-left: 30px;
+}
+
+.margin-gen{
+	margin-bottom: 10px;
+}
+
+.genBox {
+	margin: 20px 0;
+}
+
+.addrSearch_Btn{
+	font-size: 22px;
+	background: #fff !important;
+    color: black !important;
+    height: 50px;
+    letter-spacing: -.01em;
+    border: 1px solid #999;
+    margin-left: 20px;
+    min-width: 150px;
+    position: absolute;
+    font: 500 17px/1 notokrR;
+}
+
+.infoChg_btn {
+	margin-top: 50px;
+	text-align: center;
+}
+
+.select-box{
+	position: absolute;
+	border: 1px solid #999; /* 테두리 설정 */ 
+	z-index: 1;
+	height: 50px;
+	margin-left: 10px;
+	padding-left: 10px;
+	min-width: 150px;
+	font: 500 17px/1 notokrR;
+}
+
+.select-box:before { /* 화살표 대체 */ 
+	content: ""; 	
+	position: absolute; 
+	top: 50%; 
+	right: 15px;
+	width: 0; 
+	height: 0; 
+	margin-top: -1px; 
+	border-left: 5px solid transparent; 
+	border-right: 5px solid transparent; 
+	border-top: 5px solid #333; 
+}
+
+.select-box select { 
+	width: 100%; 
+	height: auto; /* 높이 초기화 */ 
+	line-height: normal; /* line-height 초기화 */ 
+	font-family: inherit; /* 폰트 상속 */ 
+	padding: .8em .5em; /* 여백과 높이 결정 */ 
+	border: 0; opacity: 0; /* 숨기기 */ 
+	filter:alpha(opacity=0); /* IE8 숨기기 */ 
+	-webkit-appearance: none; /* 네이티브 외형 감추기 */ 
+	-moz-appearance: none; appearance: none; 
+}
+
+/* 
+ * 비밀번호 변경 & 회원 탈퇴 페이지
+ */
+ 
+.warningTxt {
+	color: #989442;
+    font-size: 18px;
+    margin-bottom: 40px;
+}
+
+.chgTxt2_origin {
+	border: 1px solid black;
+	border-left: hidden;
+	border-right: hidden;
+	border-top: hidden;
+	opacity: 0.5;
+	width: 45%;
+	height: 50px;
+	margin-bottom: 25px;
+	font-size: 20px;
+}
+
+.chgTxt2_new {
+	border: 1px solid black;
+	border-left: hidden;
+	border-right: hidden;
+	border-top: hidden;
+	opacity: 0.5;
+	width: 100%;
+	height: 50px;
+	margin-bottom: 25px;
+	font-size: 20px;
+}
+
+.newPwd_box {
+	display: flex;
+}
+
+.newPwd_inner {
+	display: block;
+	margin-right: 40px;
+	width: 100%;
+}
+
+.submint_box {
+	text-align: center;	
+	margin-top: 50px;
+}
+
+.confirm_btn{
+	font-family: 'Noto Sans KR', sans-serif;
+    font-size: 22px;
+    background: #151515 !important;
+    color: #fff !important;
+    height: 50px;
+    padding: 0 50px;
+    border-style: none;
+}
+
+.delBox {
+	margin: 300px 0;
+    text-align: center;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 25px;
+}
+
+.delinner {
+	width: 30%;
+    padding: 50px;
+    display: inline-block;
+    background-color: #f9f9f9;
+    line-height: 2.5;
+    letter-spacing: -.025em;
+}
+
+.goMain_btn {
+	font-family: 'Noto Sans KR', sans-serif;
+    font-size: 22px;
+    background: #151515 !important;
+    color: #fff !important;
+    height: 50px;
+    padding: 0 50px;
+    border-style: none;
+    margin-top: 50px;
+}
+
+input{
+	cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

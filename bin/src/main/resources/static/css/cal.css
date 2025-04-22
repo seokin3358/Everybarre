@@ -1,0 +1,184 @@
+#datepicker {
+  margin: 20px 20px 20px 20px;
+}
+
+
+.ui-datepicker-hover a,
+.ui-datepicker-hover:after {
+  background-color: #d6c3ba !important;
+  color: #fff !important;
+}
+
+.ui-datepicker-select a {
+  background-color: #434f5f;
+  color: #fff !important;
+}
+
+.ui-datepicker {
+  background: #fff;
+  padding: 10px;
+}
+.ui-datepicker:after {
+  display: block;
+  content: "";
+  height: 0;
+  overflow: hidden;
+  clear: both;
+}
+.ui-datepicker .ui-datepicker-group {
+  float: left;
+  width: 50%;
+  padding: 10px;
+}
+.ui-datepicker .ui-datepicker-header {
+  color: #62748c;
+  font: 14px/25px "Arial";
+  position: relative;
+  text-align: center;
+  text-transform: uppercase;
+}
+.ui-datepicker .ui-datepicker-header .ui-datepicker-prev,
+.ui-datepicker .ui-datepicker-header .ui-datepicker-next {
+  cursor: pointer;
+  position: absolute;
+}
+.ui-datepicker .ui-datepicker-header .ui-datepicker-prev:hover,
+.ui-datepicker .ui-datepicker-header .ui-datepicker-next:hover {
+  background-color: #050505;
+}
+.ui-datepicker .ui-datepicker-header .ui-datepicker-prev.ui-state-disabled,
+.ui-datepicker .ui-datepicker-header .ui-datepicker-next.ui-state-disabled {
+  opacity: 0.3;
+}
+.ui-datepicker .ui-datepicker-header .ui-datepicker-prev {
+  left: 10px;
+}
+.ui-datepicker .ui-datepicker-header .ui-datepicker-next {
+  right: 10px;
+}
+.ui-datepicker .ui-datepicker-calendar {
+  border-collapse: collapse;
+  font-size: 14px !important;
+  cursor: default;
+}
+.ui-datepicker .ui-datepicker-calendar th,
+.ui-datepicker .ui-datepicker-calendar td {
+  text-align: center;
+  vertical-align: middle;
+  width: 36px;
+  height: 30px;
+  line-height: 30px;
+  padding: 0;
+  z-index: 1;
+}
+.ui-datepicker .ui-datepicker-calendar th {
+  color: #62748c;
+  font-size: 14px;
+}
+.ui-datepicker .ui-datepicker-calendar td {
+  color: #8d8d8d;
+  padding: 2px 0;
+  position: relative;
+  font-size: 14px;
+}
+.ui-datepicker .ui-datepicker-calendar td:before,
+.ui-datepicker .ui-datepicker-calendar td:after {
+  bottom: 2px;
+  content: "";
+  left: 0;
+  top: 2px;
+  position: absolute;
+  width: 100%;
+  z-index: -1;
+}
+.ui-datepicker .ui-datepicker-calendar td:before {
+  background: #eee;
+}
+.ui-datepicker .ui-datepicker-calendar td:first-child:before {
+  border-radius: 15px 0 0 15px;
+}
+.ui-datepicker .ui-datepicker-calendar td:last-child:before {
+  border-radius: 0 15px 15px 0;
+}
+.ui-datepicker .ui-datepicker-calendar td.ui-datepicker-other-month,
+.ui-datepicker .ui-datepicker-calendar td.ui-state-disabled {
+  color: #d0d0d0;
+}
+.ui-datepicker .ui-datepicker-calendar a {
+  color: inherit;
+  display: inline-block;
+  height: 30px;
+  text-decoration: none;
+  width: 30px;
+}
+.ui-datepicker .ui-datepicker-calendar .ui-datepicker-highlight:after {
+  background: #d6c3ba;
+}
+.ui-datepicker .ui-datepicker-calendar .ui-checkin:after {
+  left: 50%;
+  width: 50%;
+}
+.ui-datepicker .ui-datepicker-calendar .ui-checkout:after {
+  right: 50%;
+  width: 50%;
+}
+.ui-datepicker .ui-datepicker-calendar .ui-datepicker-highlight a {
+  color: #fff;
+}
+.ui-datepicker .ui-datepicker-calendar .ui-checkin a,
+.ui-datepicker .ui-datepicker-calendar .ui-checkout a {
+  background-color: #bb998d;
+  border-radius: 50%;
+}
+.ui-datepicker
+  .ui-datepicker-calendar
+  .ui-checkin.ui-datepicker-hover
+  .ui-state-hover {
+  border-radius: 50%;
+}
+.ui-datepicker .ui-datepicker-calendar .ui-datepicker-hover .ui-state-hover {
+  border-radius: 0 50% 50% 0;
+}
+.ui-datepicker .ui-datepicker-calendar .ui-datepicker-today a {
+  background: #576574;
+  border-radius: 50%;
+  color: #fff;
+}
+
+.ui-datepicker-trigger {
+  float: left;
+  height: 15px;
+  margin: 13px 0 0 -35px;
+  overflow: hidden;
+  text-indent: -100em;
+  width: 16px;
+}
+
+/* 일요일, 토요일에 대하여 CSS 처리 및 선택 못할시 컬러 끄기*/
+tr .ui-datepicker-week-end:first-child .ui-state-default {
+  color: #ee5253;
+}
+
+tr .ui-state-disabled:first-child .ui-state-default {
+  color: #d0d0d0 !important;
+}
+
+tr .ui-datepicker-week-end:last-child .ui-state-default {
+  color: #2e86de;
+}
+
+tr .ui-state-disabled:last-child .ui-state-default {
+  color: #d0d0d0 !important;
+}
+
+a.ui-datepicker-prev .ui-icon::before {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "\f104";
+}
+
+a.ui-datepicker-next .ui-icon::after {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "\f105";
+}

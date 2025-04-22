@@ -1,0 +1,744 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="com.bareMapper">
+    <resultMap id="MemberInfoResultMap" type="java.util.HashMap">
+        <result property="USER_NAME" column="USER_NAME" javaType="String"/>
+        <result property="USER_PHONE" column="USER_PHONE" javaType="String"/>
+        <result property="USER_MAIL" column="USER_MAIL" javaType="String"/>
+        <result property="USER_PASSWORD" column="USER_PASSWORD" javaType="String"/>
+        <result property="USER_BIRTH" column="USER_BIRTH" javaType="String"/>
+        <result property="ONEDAY_CHECK" column="ONEDAY_CHECK" javaType="Int"/>
+    </resultMap>
+    <resultMap id="UserWaitMap" type="java.util.HashMap">
+        <result property="LOCATION" column="LOCATION" javaType="String"/>
+        <result property="TIME" column="TIME" javaType="String"/>
+        <result property="DATE" column="DATE" javaType="String"/>
+        <result property="CLASS" column="CLASS" javaType="String"/>
+        <result property="WAIT_ID" column="WAIT_ID" javaType="INT"/>
+    </resultMap>
+    <resultMap id="LocationResultMap" type="java.util.HashMap">
+        <result property="LOCATION" column="LOCATION" javaType="String"/>
+        <result property="ADDRESS" column="ADDRESS" javaType="String"/>
+        <result property="INSTAGRAM" column="INSTAGRAM" javaType="String"/>
+        <result property="PLACE" column="PLACE" javaType="String"/>
+        <result property="INSTA_LINK" column="INSTA_LINK" javaType="String"/>
+        <result property="NAVER_LINK" column="NAVER_LINK" javaType="String"/>
+        <result property="CLIENT_LINK" column="CLIENT_LINK" javaType="String"/>
+        <result property="SECRET_LINK" column="SECRET_LINK" javaType="String"/>
+    </resultMap>
+    <resultMap id="TicketResultMap" type="java.util.HashMap">
+    	<result property="NAME" column="NAME" javaType="String"/>
+    	<result property="PRICE" column="PRICE" javaType="String"/>
+    	<result property="DATE" column="DATE" javaType="String"/>
+    	<result property="TICKET" column="TICKET" javaType="String"/>    	
+    </resultMap>
+    <resultMap id="UserTicketResultMap" type="java.util.HashMap">
+    	<result property="LOCATION" column="LOCATION" javaType="String"/>
+    	<result property="START_DATE" column="START_DATE" javaType="String"/>
+    	<result property="END_DATE" column="END_DATE" javaType="String"/>
+    	<result property="TICKET_NAME" column="TICKET_NAME" javaType="String"/>    	
+    	<result property="TICKET_COUNT" column="TICKET_COUNT" javaType="String"/>    	
+    </resultMap>
+    <resultMap id="UserBookResultMap" type="java.util.HashMap">
+    	<result property="USER_NAME" column="USER_NAME" javaType="String"/>
+    	<result property="LOCATION" column="LOCATION" javaType="String"/>
+    	<result property="CLASS" column="CLASS" javaType="String"/>
+    	<result property="DATE" column="DATE" javaType="String"/>    	
+    	<result property="TIME" column="TIME" javaType="String"/>    	
+    </resultMap>
+    
+	<insert id="save" parameterType="java.util.HashMap">
+		INSERT INTO MEMBER_INFO (USER_NAME, USER_PHONE, USER_MAIL, USER_PASSWORD, USER_BIRTH, USER_JOIN)
+		VALUES (#{USER_NAME}, #{USER_PHONE}, #{USER_MAIL}, #{USER_PASSWORD}, #{USER_BIRTH}, NOW());
+	</insert>
+	
+	<insert id="waitClass" parameterType="java.util.HashMap">
+		INSERT INTO WAIT_LIST (DATE, NAME, CLASS, TIME, LOCATION, BOOK_DATE, USER_ID, BOOK_ID)
+		VALUES (#{CLASS_DATE}, #{USER_NAME}, #{CLASS_NAME}, #{CLASS_TIME}, #{STORE}, NOW(), #{USER_ID}, #{BOOK_ID});
+	</insert>
+	
+	<select id="getuserTicket" parameterType="map" resultType="INT">
+        SELECT COUNT(*)
+        FROM MEMBER_TICKET
+        WHERE LOCATION IN('전지점',#{LOCATION})  
+        AND TICKET_NAME = '1개월 무제한'
+        AND END_DATE > NOW()
+        AND USER_ID = #{USER_ID}         
+    </select>
+	
+	<select id="waitClassCheck" parameterType="java.util.HashMap" resultType="INT">
+		SELECT COUNT(*) FROM WAIT_LIST 
+		WHERE USER_ID = #{USER_ID} 
+		AND DATE = #{CLASS_DATE} 
+		AND CLASS = #{CLASS_NAME} 
+		AND LOCATION = #{STORE} 
+		AND TIME = #{CLASS_TIME};
+	</select>	
+	
+	<select id="checkMail" parameterType="java.util.HashMap" resultType="INT">
+		SELECT COUNT(*) FROM MEMBER_INFO WHERE USER_MAIL = #{USER_MAIL};
+	</select>
+	
+    <select id="login" parameterType="java.util.HashMap" resultMap="MemberInfoResultMap">
+        SELECT * FROM MEMBER_INFO WHERE USER_MAIL = #{USER_MAIL} AND USER_PASSWORD = #{USER_PASSWORD};
+    </select>
+    
+    <select id="getschedule" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+    	SELECT * FROM BARE_BOOK WHERE DATE = #{DATE} AND LOCATION = #{STORE};
+    </select>
+    
+    <select id="getUser" parameterType="Int" resultMap="MemberInfoResultMap">
+        SELECT * FROM MEMBER_INFO WHERE USER_ID = #{ID};
+    </select>
+    
+    <select id="checkID" parameterType="java.util.HashMap" resultType="INT">
+		SELECT COUNT(*) FROM MEMBER_INFO WHERE USER_MAIL = #{NAME} AND USER_PHONE = #{PHONE};
+	</select>
+	
+	<update id="updatePassword" parameterType="java.util.HashMap" >
+		UPDATE MEMBER_INFO SET USER_PASSWORD = #{PASSWORD} WHERE USER_MAIL = #{NAME} AND USER_PHONE = #{PHONE};
+	</update>
+	
+	<update id="updateOneday" parameterType="java.util.HashMap" >
+		UPDATE MEMBER_INFO SET ONEDAY_CHECK = '1' WHERE USER_ID = #{USER_ID};
+	</update>
+	
+	<update id="updateUserCash" parameterType="java.util.HashMap" >
+		UPDATE MEMBER_INFO SET USER_CASH = USER_CASH + 1 WHERE USER_ID = #{USER_ID};
+	</update>
+	
+	<update id="updateUserInfo" parameterType="java.util.HashMap">
+		UPDATE MEMBER_INFO SET USER_NAME = #{userName} , USER_PHONE = #{userPhone} , USER_PASSWORD = #{userPassword} , USER_BIRTH = #{userBirth} WHERE USER_ID = #{USER_ID};
+	</update>
+
+	<select id="getStoreList" parameterType="java.util.HashMap" resultMap="LocationResultMap">
+		SELECT * FROM BARE_LOCATION;
+	</select>
+	
+	<select id="getticketList" parameterType="java.util.HashMap" resultMap="TicketResultMap">
+		SELECT * FROM TICKET_INFO;
+	</select>
+	
+	<select id="getUserCash" parameterType="java.util.HashMap" resultType="int">
+		SELECT USER_CASH FROM MEMBER_INFO WHERE USER_ID = #{USER_ID};
+	</select>
+	
+	<select id="getuserticketList" parameterType="Int" resultMap="UserTicketResultMap">
+		SELECT * FROM MEMBER_TICKET WHERE USER_ID = #{ID} AND END_DATE >= NOW() AND TICKET_COUNT > 0;
+	</select>
+	
+	<select id="getuserBookList" parameterType="Int" resultMap="UserBookResultMap">
+		SELECT * FROM MEMBER_BOOK WHERE USER_ID = #{ID} AND (DATE > CURDATE() OR (DATE = CURDATE() AND TIME > CURRENT_TIME()));
+	</select>
+	
+	<select id="getuserWaitList" parameterType="Int" resultMap="UserWaitMap">
+		SELECT * FROM WAIT_LIST WHERE USER_ID = #{userID} AND DATE > NOW();
+	</select>
+	
+	<select id="userTicketCheck" parameterType="java.util.HashMap" resultType="INT">
+		SELECT COUNT(*) FROM MEMBER_TICKET WHERE USER_ID = #{USER_ID} AND END_DATE >= NOW() AND LOCATION IN ('전지점', #{STORE});
+	</select>
+		
+	<select id="userBookCheck" parameterType="java.util.HashMap" resultType="INT">
+		SELECT COUNT(*) FROM MEMBER_BOOK WHERE USER_ID = #{USER_ID} AND LOCATION = #{STORE} AND DATE = #{CLASS_DATE} AND TIME = #{CLASS_TIME} AND CLASS = #{CLASS_NAME};
+	</select>
+	
+	<select id="getticketDate" parameterType="java.util.HashMap" resultType="INTEGER">
+		SELECT COALESCE(MONTH, 0) AS MONTH
+	    FROM TICKET_INFO
+	    WHERE NAME = #{TICKET_NAME};
+	</select>
+	
+	<insert id="ticketsave" parameterType="java.util.HashMap">
+		INSERT INTO MEMBER_TICKET (USER_ID, USER_NAME, LOCATION, START_DATE, END_DATE, TICKET_NAME, TICKET_COUNT)
+		VALUES (#{USER_ID}, #{USER_NAME}, #{LOCATION}, #{START_DAY}, #{END_DAY}, #{TICKET_NAME}, #{TICKET_COUNT});
+	</insert>
+	
+	<insert id="updateCancelTicket" parameterType="java.util.HashMap">
+		INSERT INTO MEMBER_TICKET (USER_ID, USER_NAME, LOCATION, START_DATE, END_DATE, TICKET_NAME, TICKET_COUNT)
+		VALUES (#{USER_ID}, '예약취소', '전지점', NOW(), NOW() + INTERVAL 1 MONTH, '예약취소보상', '1');
+	</insert>
+	
+	<insert id="reserveClass" parameterType="java.util.HashMap">
+		INSERT INTO MEMBER_BOOK (USER_ID, USER_NAME, LOCATION, CLASS, DATE, TIME, BOOK_ID)
+		VALUES (#{USER_ID}, #{USER_NAME}, #{STORE}, #{CLASS_NAME}, #{CLASS_DATE}, #{CLASS_TIME}, #{BOOK_ID});
+	</insert>
+	
+	<update id="reserveUser" parameterType="java.util.HashMap" >
+		UPDATE BARE_BOOK
+	    SET PEOPLE = #{SET}
+	    WHERE CLASS = #{CLASS_NAME}
+	    AND LOCATION = #{STORE}
+	    AND DATE = #{CLASS_DATE}
+	    AND TIME = #{CLASS_TIME}
+	    AND TEACHER = #{TEACHER};
+	</update>
+	
+	<update id="waitBook" parameterType="java.util.HashMap" >
+		UPDATE BARE_BOOK
+	    SET WAITNUMBER = #{SET}
+	    WHERE CLASS = #{CLASS_NAME}
+	    AND LOCATION = #{STORE}
+	    AND DATE = #{CLASS_DATE}
+	    AND TIME = #{CLASS_TIME}
+	    AND TEACHER = #{TEACHER};
+	</update>
+	
+	<update id="reserveUser2" parameterType="java.util.HashMap" >
+		UPDATE MEMBER_TICKET AS mt1
+		JOIN (
+		    SELECT MIN(END_DATE) AS min_date 
+		    FROM MEMBER_TICKET 
+		    WHERE USER_ID = #{USER_ID} AND END_DATE > NOW()
+		    AND LOCATION IN ('전지점', #{STORE})
+		    AND END_DATE >= #{CLASS_DATE}
+		    AND TICKET_COUNT > 0
+		) AS subquery 
+		ON mt1.END_DATE = subquery.min_date
+		AND mt1.USER_ID = #{USER_ID}
+		AND mt1.LOCATION IN ('전지점', #{STORE})
+		SET mt1.TICKET_COUNT = mt1.TICKET_COUNT - 1
+		WHERE mt1.TICKET_COUNT > 0;
+	</update>
+	
+	<!-- 강사 추가 -->
+    <insert id="addTeacher">
+        INSERT INTO BARE_TEACHER (NAME, PHONE) VALUES (#{name}, #{phone})
+    </insert>
+
+    <!-- 강사 수정 -->
+    <update id="updateTeacher">
+        UPDATE BARE_TEACHER 
+        SET NAME = #{newName}, PHONE = #{phone}
+        WHERE NAME = #{oldName}
+    </update>
+
+    <!-- 강사 삭제 -->
+    <delete id="deleteTeacher">
+        DELETE FROM BARE_TEACHER WHERE NAME = #{name}
+    </delete>
+
+    <delete id="deletewaitList" parameterType="java.util.HashMap">
+        DELETE FROM WAIT_LIST WHERE WAIT_ID = #{WAITID}
+    </delete>
+    
+    <!-- 수강권 추가 -->
+    <insert id="addTicketadmin">
+        INSERT INTO TICKET_INFO (NAME, PRICE, MONTH) VALUES (#{name}, #{price}, #{month})
+    </insert>
+
+    <!-- 수강권 수정 -->
+    <update id="updateTicketadmin">
+        UPDATE TICKET_INFO 
+        SET NAME = #{name}, PRICE = #{price}, MONTH = #{month} 
+        WHERE NAME = #{originalName}
+    </update>
+
+    <!-- 수강권 삭제 -->
+    <delete id="deleteTicketadmin">
+        DELETE FROM TICKET_INFO WHERE NAME = #{name}
+    </delete>
+    
+	<delete id="deleteBook" parameterType="java.util.HashMap">
+		DELETE FROM MEMBER_BOOK
+		WHERE USER_ID = #{USER_ID}
+		AND LOCATION = #{LOCATION}
+		AND CLASS = #{CLASS}
+		AND DATE = #{DATE}
+		AND TIME = #{TIME};
+	</delete>
+	
+	<!-- 지점 추가 -->
+    <insert id="addLocation" parameterType="map">
+        INSERT INTO BARE_LOCATION (LOCATION, ADDRESS, INSTAGRAM, PLACE, INSTA_LINK, NAVER_LINK, CLIENT_KEY, SECRET_KEY)
+        VALUES (#{location}, #{address}, #{instagram}, #{place}, #{instaLink}, #{naverLink}, #{clientKey}, #{secretKey})
+    </insert>
+
+    <!-- 지점 수정 -->
+    <update id="updateLocation" parameterType="map">
+        UPDATE BARE_LOCATION 
+        SET LOCATION = #{location}, 
+            ADDRESS = #{address}, 
+            INSTAGRAM = #{instagram}, 
+            PLACE = #{place}, 
+            INSTA_LINK = #{instaLink}, 
+            NAVER_LINK = #{naverLink},
+            CLIENT_KEY = #{clientKey},
+            SECRET_KEY = #{secretKey}
+        WHERE LOCATION = #{originalLocation}
+    </update>
+
+    <!-- 지점 삭제 -->
+    <delete id="deleteLocation" parameterType="String">
+        DELETE FROM BARE_LOCATION WHERE LOCATION = #{location}
+    </delete>
+
+	<!-- 일정 조회 (특정 월) -->
+    <select id="getScheduleList" parameterType="map" resultType="map">
+        SELECT LOCATION, TEACHER, CLASS, DATE, TIME, PEOPLE, WAITNUMBER
+        FROM BARE_BOOK
+        WHERE DATE_FORMAT(DATE, '%Y-%m') = #{month}  
+        AND LOCATION = #{location}  
+        ORDER BY DATE, TIME
+    </select>
+
+    <!-- 일정 추가 -->
+    <insert id="insertSchedule" parameterType="map">
+        INSERT INTO BARE_BOOK (LOCATION, TEACHER, CLASS, DATE, TIME, PEOPLE, WAITNUMBER)
+        VALUES (#{location}, #{teacher}, #{className}, #{date}, #{time}, 0, 0)
+    </insert>
+
+    <!-- 일정 수정 -->
+    <update id="updateSchedule" parameterType="map">
+        UPDATE BARE_BOOK
+        SET TEACHER = #{teacher}, CLASS = #{className}, DATE = #{date}, TIME = #{time}
+        WHERE BOOK_ID = #{bookId}
+    </update>
+
+    <!-- 일정 삭제 -->
+    <delete id="deleteSchedule" parameterType="map">
+        DELETE FROM BARE_BOOK WHERE BOOK_ID = #{bookId}
+    </delete>
+    
+    <select id="getPaymentKey" resultType="map">
+    	SELECT CLIENT_KEY,SECRET_KEY FROM BARE_LOCATION WHERE LOCATION = #{place}
+    </select>
+    
+    <select id="getScheduleAdmin" resultType="map">
+    SELECT DATE, TIME, CLASS AS className, TEACHER, PEOPLE, WAITNUMBER AS waitNumber, LOCATION, MAXPEOPLE, BOOK_ID
+    FROM BARE_BOOK
+    WHERE YEAR(DATE) = #{year} AND MONTH(DATE) = #{month}
+    <if test="day != null">
+        AND DAY(DATE) = #{day}
+    </if>
+    <if test="location != null">
+        AND LOCATION = #{location}
+    </if>
+    <if test="teacher != null and teacher != 'all'">
+        AND TEACHER = #{teacher}
+    </if>
+	</select>
+	
+	<select id="getClassDetail" resultType="map">
+    SELECT 
+        BOOK_ID, 
+        DATE, 
+        TIME, 
+        CLASS AS className, 
+        TEACHER, 
+        LOCATION, 
+        PEOPLE, 
+        WAITNUMBER AS waitNumber,
+        MAXPEOPLE
+    FROM BARE_BOOK
+    WHERE BOOK_ID = #{bookId}
+	</select>
+	
+	<select id="getClassMembers" resultType="map">
+    SELECT 
+        USER_ID, 
+        USER_NAME, 
+        LOCATION, 
+        CLASS, 
+        DATE, 
+        TIME
+    FROM MEMBER_BOOK
+    WHERE BOOK_ID = #{bookId}
+	</select>
+	<select id="memberDetail" resultType="map">
+    SELECT 
+        USER_PHONE,
+        USER_MAIL
+    FROM MEMBER_INFO
+    WHERE USER_ID = #{USER_ID}
+	</select>
+	
+	<insert id="addClasses" parameterType="map">
+    INSERT INTO BARE_BOOK (LOCATION, TEACHER, CLASS, MAXPEOPLE, DATE, TIME)
+    VALUES
+    <foreach collection="dates" item="date" separator=",">
+        (#{location}, #{teacher}, #{className}, #{people}, #{date}, #{time})
+    </foreach>
+	</insert>
+	
+	<select id="getClassList" resultType="map">
+    SELECT 
+        BOOK_ID, 
+        DATE, 
+        TIME, 
+        LOCATION, 
+        CLASS AS className, 
+        TEACHER, 
+        PEOPLE, 
+        WAITNUMBER AS waitNumber,
+        MAXPEOPLE
+    FROM BARE_BOOK
+    WHERE 1=1  <!-- ✅ 기본적으로 항상 참인 조건 추가 -->
+    <if test="startDate != null and startDate != ''">
+        <![CDATA[ AND DATE >= #{startDate} ]]>
+    </if>
+    <if test="endDate != null and endDate != ''">
+       <![CDATA[ AND DATE <= #{endDate} ]]>
+    </if>
+    <if test="location != null and location != 'all'">
+        AND LOCATION = #{location}
+    </if>
+    <if test="teacher != null and teacher != 'all'">
+        AND TEACHER = #{teacher}
+    </if>
+    ORDER BY DATE ASC, TIME ASC
+    LIMIT #{limit} OFFSET #{offset}  <!-- ✅ 페이징 적용 -->
+	</select>
+	
+	<select id="getTotalClassCount" resultType="int">
+    SELECT COUNT(*) 
+    FROM BARE_BOOK
+    WHERE 1=1  <!-- ✅ 기본적으로 항상 참인 조건 추가 -->
+    <if test="startDate != null and startDate != ''">
+        <![CDATA[ AND DATE >= #{startDate} ]]>
+    </if>
+    <if test="endDate != null and endDate != ''">
+        <![CDATA[ AND DATE <= #{endDate} ]]>
+    </if>
+    <if test="location != null and location != 'all'">
+        AND LOCATION = #{location}
+    </if>
+    <if test="teacher != null and teacher != 'all'">
+        AND TEACHER = #{teacher}
+    </if>
+	</select>
+	
+	<update id="updateClass" parameterType="map">
+    UPDATE BARE_BOOK
+    SET DATE = #{DATE},
+        TIME = #{TIME},
+        LOCATION = #{LOCATION},
+        CLASS = #{className},
+        TEACHER = #{TEACHER},
+        MAXPEOPLE = #{MAXPEOPLE}
+    WHERE BOOK_ID = #{BOOK_ID}
+	</update>
+	
+	<delete id="deleteClass" parameterType="int">
+	    DELETE FROM BARE_BOOK WHERE BOOK_ID = #{bookId}
+	</delete>
+	
+	<!-- 지점 목록 조회 -->
+	<select id="getLocationList" resultType="string">
+	    SELECT LOCATION FROM BARE_LOCATION
+	</select>
+	
+	<!-- 강사 목록 조회 -->
+	<select id="getTeacherList" resultType="string">
+	    SELECT NAME FROM BARE_TEACHER
+	</select>
+
+	<select id="getMemberList" resultType="map">
+    SELECT USER_ID, USER_NAME, USER_PHONE, USER_MAIL, USER_BIRTH, MEMO
+    FROM MEMBER_INFO
+    <where>
+        <if test="name != null and name != ''">
+            AND USER_NAME LIKE CONCAT('%', #{name}, '%')
+        </if>
+        <if test="phone != null and phone != ''">
+            AND USER_PHONE LIKE CONCAT('%', #{phone}, '%')
+        </if>
+    </where>
+    ORDER BY USER_ID DESC
+    LIMIT #{limit} OFFSET #{offset}
+	</select>
+	
+	<select id="getTotalMemberCount" resultType="int">
+	    SELECT COUNT(*) FROM MEMBER_INFO
+	    <where>
+	        <if test="name != null and name != ''">
+	            AND USER_NAME LIKE CONCAT('%', #{name}, '%')
+	        </if>
+	        <if test="phone != null and phone != ''">
+	            AND USER_PHONE LIKE CONCAT('%', #{phone}, '%')
+	        </if>
+	    </where>
+	</select>
+	
+	<delete id="deleteMember">
+	    DELETE FROM MEMBER_INFO WHERE USER_ID = #{userId}
+	</delete>
+	
+	<!-- 특정 회원의 수강권 조회 -->
+    <select id="getMemberTickets" resultType="map">
+        SELECT TICKET_NAME, START_DATE, END_DATE, TICKET_COUNT, LOCATION
+        FROM MEMBER_TICKET
+        WHERE USER_ID = #{userId}
+    </select>
+    
+    <!-- 회원 상세 정보 조회 -->
+    <select id="getMemberDetail" parameterType="int" resultType="map">
+        SELECT USER_ID, USER_NAME, USER_PHONE, USER_MAIL, USER_BIRTH, MEMO
+        FROM MEMBER_INFO
+        WHERE USER_ID = #{userId}
+    </select>
+    
+    <!-- 회원 정보 수정 -->
+    <update id="updateMember" parameterType="map">
+        UPDATE MEMBER_INFO
+        SET USER_NAME = #{userName},
+            USER_PHONE = #{userPhone},
+            USER_MAIL = #{userMail},
+            USER_BIRTH = #{userBirth},
+            MEMO = #{memo},
+            ADMIN_CD = #{admin_cd}
+        WHERE USER_ID = #{userId}
+    </update>
+
+    <!-- 회원 수강권 추가 -->
+    <insert id="addTicket" parameterType="map">
+        INSERT INTO MEMBER_TICKET (USER_ID, USER_NAME, LOCATION, START_DATE, END_DATE, TICKET_NAME, TICKET_COUNT)
+        VALUES (#{userId}, #{userName}, #{location}, #{startDate}, #{endDate}, #{ticketName}, #{ticketCount})
+    </insert>
+    
+    <!-- 결제 정보 추가 -->
+    <insert id="addPayment" parameterType="map">
+    INSERT INTO MEMBER_PAYMENT (USER_ID, TICKET_ID, PAYMENT_DATE, LOCATION, CARD_AMOUNT, CASH_AMOUNT, DUE_AMOUNT, MEMO, TOTAL_AMOUNT, USER_CASH)
+    VALUES (#{userId}, CASE WHEN #{TICKET_ID} IS NULL OR #{TICKET_ID} = '' THEN LAST_INSERT_ID() ELSE #{TICKET_ID} END, NOW(), #{OREGINAL_LOCATION}, #{cardAmount}, #{cashAmount}, #{dueAmount}, #{memo}, #{TOTAL_AMOUNT}, #{USER_CASH})
+	</insert>
+	
+	<!-- 최근 추가된 TICKET_ID 가져오기 -->
+    <select id="getLastInsertedTicketId" resultType="int">
+        SELECT LAST_INSERT_ID();
+    </select>
+    
+    <!-- 수강권 결제 정보 조회 -->
+    <select id="getPaymentInfo" parameterType="int" resultType="map">
+        SELECT TOTAL_AMOUNT AS totalPrice, CARD_AMOUNT AS cardAmount, CASH_AMOUNT AS cashAmount, DUE_AMOUNT AS dueAmount, MEMO AS memo , PAYMENT_DATE
+        FROM MEMBER_PAYMENT
+        WHERE TICKET_ID = #{ticketId}
+    </select>
+
+    <!-- 수강권 정보 수정 -->
+    <update id="updateTicket" parameterType="map">
+        UPDATE MEMBER_TICKET
+        SET START_DATE = #{startDate}, END_DATE = #{endDate}, TICKET_COUNT = #{ticketCount}
+        WHERE TICKET_ID = #{ticketId}
+    </update>
+
+    <!-- 결제 정보 수정 -->
+    <update id="updatePayment" parameterType="map">
+        UPDATE MEMBER_PAYMENT
+        SET CARD_AMOUNT = #{cardAmount}, CASH_AMOUNT = #{cashAmount}, DUE_AMOUNT = #{dueAmount}, MEMO = #{memo} , PAYMENT_DATE = #{PAYMENT_DATE}
+        WHERE TICKET_ID = #{ticketId}
+    </update>
+	
+	<update id="deleteTicket" parameterType="int">
+	    UPDATE MEMBER_TICKET SET CANCEL_YN = 'Y', TICKET_COUNT = '0' WHERE TICKET_ID = #{TicketId}
+	</update>
+	
+	<update id="cancelPayment" parameterType="int">
+	    UPDATE MEMBER_PAYMENT
+	    SET CANCEL_YN = 'Y', CANCEL_DATE = now()
+	    WHERE TICKET_ID = #{ticketId}
+	</update>
+	
+	<!-- 모든 사용 완료된 수강권 조회 -->
+	<select id="getAllUsedTickets" parameterType="int" resultType="map">
+	    SELECT 
+	        T.TICKET_ID,
+	        T.TICKET_NAME,
+	        T.LOCATION,
+	        T.START_DATE,
+	        T.END_DATE,
+	        T.TICKET_COUNT,
+	        P.CANCEL_YN,
+	        P.CANCEL_DATE
+	    FROM MEMBER_TICKET T
+	    LEFT JOIN MEMBER_PAYMENT P ON T.TICKET_ID = P.TICKET_ID
+	    WHERE T.USER_ID = #{userId}
+	      AND T.TICKET_COUNT = 0
+	    ORDER BY T.END_DATE DESC
+	</select>
+    
+    <!-- 예약 취소 -->
+    <delete id="cancelReservation">
+        DELETE FROM MEMBER_BOOK WHERE BOOK_ID = #{bookId} AND USER_ID = #{userId}
+    </delete>
+
+    <!-- 강좌 정보 가져오기 -->
+    <select id="getClassInfo" resultType="map">
+        SELECT PEOPLE, MAXPEOPLE, WAITNUMBER 
+        FROM BARE_BOOK 
+        WHERE BOOK_ID = #{bookId}
+    </select>
+
+    <!-- PEOPLE 감소 -->
+    <update id="decreasePeople">
+	    UPDATE BARE_BOOK 
+	    SET 
+	        PEOPLE = IFNULL(CAST(PEOPLE AS UNSIGNED), 0) - 1
+	    WHERE BOOK_ID = #{bookId}
+	</update>
+	
+    <update id="decreaseWaitPeople">
+	    UPDATE BARE_BOOK 
+	    SET 
+	        WAITNUMBER = IFNULL(CAST(WAITNUMBER AS UNSIGNED), 0) - 1
+	    WHERE BOOK_ID = #{bookId}
+	</update>
+
+    <!-- 대기자 중 가장 오래된 1명 가져오기 -->
+    <select id="getOldestWaitUser" resultType="map">
+        SELECT * FROM WAIT_LIST 
+        WHERE BOOK_ID = #{bookId} 
+        ORDER BY BOOK_DATE ASC 
+        LIMIT 1
+    </select>
+
+    <!-- WAIT_LIST -> MEMBER_BOOK으로 이동 -->
+    <insert id="moveWaitUserToMemberBook">
+        INSERT INTO MEMBER_BOOK (USER_ID, USER_NAME, LOCATION, CLASS, DATE, TIME, BOOK_ID)
+        VALUES (#{USER_ID}, #{NAME}, #{LOCATION}, #{CLASS}, #{DATE}, #{TIME}, #{BOOK_ID})
+    </insert>
+
+    <!-- 대기자 리스트에서 삭제 -->
+    <delete id="deleteWaitUser">
+        DELETE FROM WAIT_LIST WHERE USER_ID = #{userId} AND BOOK_ID = #{bookId}
+    </delete>
+
+	<select id="getSalesList" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+	    SELECT P.*, M.USER_NAME, T.TICKET_NAME, DATE_FORMAT(P.PAYMENT_DATE, '%Y-%m-%d %H:%i') AS PAYMENT_DATE_KST,
+	            CASE 
+	            WHEN P.CANCEL_DATE IS NOT NULL 
+	            THEN DATE_FORMAT(P.CANCEL_DATE, '%Y-%m-%d %H:%i') 
+	            ELSE NULL 
+	        END AS CANCEL_DATE_KST  
+	    FROM MEMBER_PAYMENT P
+	    JOIN MEMBER_TICKET T ON P.TICKET_ID = T.TICKET_ID
+	    JOIN MEMBER_INFO M ON P.USER_ID = M.USER_ID
+	    <where>
+	        <if test="startDate != null and startDate != ''">
+	            AND P.PAYMENT_DATE <![CDATA[>=]]> #{startDate}
+	        </if>
+	        <if test="endDate != null and endDate != ''">
+	            AND P.PAYMENT_DATE <![CDATA[<=]]> #{endDate}
+	        </if>
+	        <if test="filterTicket != null and filterTicket != ''">
+	            AND T.TICKET_NAME = #{filterTicket}
+	        </if>
+	        <if test="filterLocation != null and filterLocation != ''">
+	            AND P.LOCATION = #{filterLocation}
+	        </if>
+	    </where>
+	    ORDER BY P.PAYMENT_DATE DESC
+	    <if test="limit != null and start != null">
+	        LIMIT #{limit} OFFSET #{start}
+	    </if>
+	</select>
+	
+	<select id="getSalesCount" parameterType="java.util.HashMap" resultType="int">
+	    SELECT COUNT(*) 
+	    FROM MEMBER_PAYMENT P
+	    JOIN MEMBER_TICKET T ON P.TICKET_ID = T.TICKET_ID
+	    JOIN MEMBER_INFO M ON P.USER_ID = M.USER_ID
+	    <where>
+	        <if test="startDate != null and startDate != ''">
+	            AND P.PAYMENT_DATE <![CDATA[>=]]> #{startDate}
+	        </if>
+	        <if test="endDate != null and endDate != ''">
+	            AND P.PAYMENT_DATE <![CDATA[<=]]> #{endDate}
+	        </if>
+	        <if test="filterTicket != null and filterTicket != ''">
+	            AND T.TICKET_NAME = #{filterTicket}
+	        </if>
+	        <if test="filterLocation != null and filterLocation != ''">
+	            AND P.LOCATION = #{filterLocation}
+	        </if>
+	    </where>
+	</select>
+    
+	<select id="getSalesSummary" resultType="map">
+	   SELECT
+	  IFNULL(SUM(P.TOTAL_AMOUNT) + SUM(P.DUE_AMOUNT), 0) AS total,
+	
+	  IFNULL(SUM(CASE WHEN P.USER_CASH = 1 THEN P.TOTAL_AMOUNT + P.DUE_AMOUNT ELSE 0 END), 0) AS new,
+	
+	  IFNULL(SUM(CASE WHEN P.USER_CASH >= 2 THEN P.TOTAL_AMOUNT + P.DUE_AMOUNT ELSE 0 END), 0) AS `repeat_payment`,
+	
+	  IFNULL(SUM(CASE WHEN T.TICKET_NAME = '1회체험권 (계정당한번만 가능)' THEN P.TOTAL_AMOUNT + P.DUE_AMOUNT ELSE 0 END), 0) AS trial,
+	
+	  IFNULL(SUM(CASE WHEN P.CANCEL_YN = 'Y' THEN P.TOTAL_AMOUNT + P.DUE_AMOUNT ELSE 0 END), 0) AS refund,
+	
+	  IFNULL(SUM(P.DUE_AMOUNT), 0) AS due
+	
+	FROM MEMBER_PAYMENT P
+	JOIN MEMBER_TICKET T ON P.TICKET_ID = T.TICKET_ID
+	
+	WHERE 1=1
+	  <if test="startDate != null and startDate != ''">
+	    AND DATE(P.PAYMENT_DATE) <![CDATA[>=]]> #{startDate}
+	  </if>
+	  <if test="endDate != null and endDate != ''">
+	    AND DATE(P.PAYMENT_DATE) <![CDATA[<=]]> #{endDate}
+	  </if>
+	  <if test="filterLocation != null and filterLocation != ''">
+	    AND P.LOCATION = #{filterLocation}
+	  </if>
+	</select>
+    
+    <select id="getFilteredMemberList" parameterType="map" resultType="hashmap">
+	    SELECT 
+		    M.USER_ID, 
+		    M.USER_NAME, 
+		    M.USER_PHONE, 
+		    M.USER_MAIL, 
+		    M.USER_BIRTH,
+		    M.USER_JOIN,
+		    MT.TICKET_NAME,
+		    MT.TICKET_COUNT,
+		    MT.START_DATE,
+		    MT.END_DATE,
+		    MP.TOTAL_AMOUNT,
+		    MP.PAYMENT_DATE,
+		    MP.CANCEL_YN,
+		    MP.CANCEL_DATE,
+		    MP.LOCATION,
+		    MP.DUE_AMOUNT,
+		    MP.USER_CASH
+		FROM MEMBER_INFO M
+		LEFT JOIN MEMBER_TICKET MT ON M.USER_ID = MT.USER_ID
+		LEFT JOIN MEMBER_PAYMENT MP ON MT.TICKET_ID = MP.TICKET_ID
+ 		  WHERE 1 = 1
+	    <if test="name != null and name != ''">
+	        AND M.USER_NAME LIKE CONCAT('%', #{name}, '%')
+	    </if>
+	    <if test="phone != null and phone != ''">
+	        AND M.USER_PHONE LIKE CONCAT('%', #{phone}, '%')
+	    </if>
+	    ORDER BY M.USER_ID, MT.START_DATE DESC;
+	</select>
+	<select id="getFilteredClassList" resultType="hashmap">
+	    SELECT *
+	    FROM BARE_BOOK
+	    WHERE 1=1
+	    <if test="startDate != null and startDate != ''">
+	        AND DATE <![CDATA[>=]]> #{startDate}
+	    </if>
+	    <if test="endDate != null and endDate != ''">
+	        AND DATE <![CDATA[<=]]> #{endDate}
+	    </if>
+	    <if test="location != null and location != ''">
+	        AND LOCATION = #{location}
+	    </if>
+	    <if test="teacher != null and teacher != ''">
+	        AND TEACHER = #{teacher}
+	    </if>
+	    ORDER BY DATE DESC, TIME ASC
+	</select>
+	<select id="getContentById" resultType="String">
+        SELECT CONTENT_TEXT FROM SITE_CONTENTS WHERE CONTENT_ID = #{id}
+    </select>
+
+    <update id="updateContent">
+        UPDATE SITE_CONTENTS SET CONTENT_TEXT = #{content} WHERE CONTENT_ID = #{id}
+    </update>
+</mapper>

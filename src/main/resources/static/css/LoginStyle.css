@@ -1,0 +1,429 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display+SC&display=swap');
+
+.topArea{
+	position: relative;
+	width: 50%;
+	margin: auto;
+	max-width: 800px;
+	margin-top: 200px;
+}
+
+.sign_title{
+	font: 500 60px playfair;
+	font-family: 'Playfair Display SC', serif;
+	color: #151515;
+	font-feature-settings: 'lnum', 'pnum';
+}
+
+.sign_guide{
+	margin-top: 18px;
+	font-size: 20px;
+	letter-spacing: -.01em;
+	opacity: 0.8;
+}
+ 
+.login_inner{
+	position: relative;
+	width: 50%;
+	margin: auto;
+	margin-top: 50px;
+	padding-bottom: 250px;
+	max-width: 800px;
+}
+
+.login_form li.login_on{
+	border: 1px solid black;
+	border-bottom: 0;
+	text-align: center;
+	margin-bottom: 30px;
+	line-height: 60px;
+}
+
+.loginBox{
+	display: table;
+	width: 100%
+}
+
+.userLogin{
+	position: relative;
+	margin-bottom: 10px;
+}
+
+.hidden{
+	overflow: hidden;
+	position: absolute;
+	width: 0;
+	height: 0;
+}
+
+.id_form, .pw_form{
+	margin-bottom: 10px
+}
+
+.id_form input{
+	background-color: #f9f9f9;
+	width: 100%;
+	height: 65px !important; 
+	padding: 20px;
+	border: none;
+}
+
+
+.pw_form input{
+	background-color: #f9f9f9;
+	width: 100%;
+	height: 65px !important;
+	padding: 20px;
+	border: none;
+}
+
+.id_save{
+	margin: 12px 0 12px;
+	position: relative;
+	display: block;
+}
+
+.id_save label {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  cursor: pointer;
+  height: 28px;
+  left: 0;
+  position: relative;
+  top: 0;
+  width: 28px;
+  display: inline-block;
+}
+
+.id_save label:after {
+  border: 2px solid #fff;
+  border-top: none;
+  border-right: none;
+  content: "";
+  height: 6px;
+  left: 7px;
+  position: absolute;
+  top: 8px;
+  transform: rotate(-45deg);
+  width: 12px;
+}
+
+.id_save input[type="checkbox"] {
+  visibility: hidden;
+  position: absolute;
+  opacity: 0;
+}
+
+.id_save input[type="checkbox"]:checked + label {
+  background-color: #151515;
+  border-color: #151515;
+}
+
+.id_save input[type="checkbox"]:checked + label:after {
+  opacity: 1;
+}
+
+.id_save_s{
+	position: absolute;
+	margin-left: 10px;
+	font-size: 17px;
+	opacity: 0.8;
+}
+
+.login_submit{
+	background: #151515 !important;
+    color: #fff !important;
+    height: 60px;
+    padding: 0 25px;
+    line-height: 58px;
+    font-size: 18px;
+    letter-spacing: -.01em;
+    width: 100% !important;
+}
+
+.id_pw_search{
+	position: relative;
+    padding-right: 10px;
+    background: transparent;
+    display: inline-block;
+    min-width: 68px;
+    font-size: 15px;
+    border: 0;
+    vertical-align: top;
+    opacity: 0.8;
+}
+
+.txtGuide{
+	margin-top: 50px;
+}
+
+.txtGuide::before{
+	content: '';
+    display: block;
+    width: 100%;
+    height: 1px;
+    margin-bottom: 15px;
+    background-color: #ccc;
+}
+
+.txtGuide li{
+	position: relative;
+    color: #888;
+    padding-left: 16px;
+    font: 16px gothamL, notokrL, playfair;
+    letter-spacing: -.01em;
+}
+
+.txtGuide li:before{
+	content: '＊';
+    position: absolute;
+    left: 0;
+    top: 4px;
+    font: 600 15px gothamL;
+}
+
+
+/* 0603 Areum 수정 */
+/* id_search.jsp & pwd_search.jsp */
+.idSearch_title{
+	color: #151515;
+	text-align: center;
+	font-size: 25px;
+	font-feature-settings: 'lnum', 'pnum';
+}
+
+.login_form li.idPwdSearch_on{  
+	width: 50%;
+	border: 1px solid black;
+	border-bottom: 0;
+	text-align: center;
+	margin-bottom: 30px;
+	line-height: 60px;
+}
+
+.login_form li.idPwdSearch_off{  
+	width: 50%;
+	border: 1px solid black;
+	border-left: hidden;
+    border-right: hidden;
+    border-top: hidden;
+	text-align: center;
+	margin-bottom: 30px;
+	line-height: 60px;
+}
+
+.idSearchOk_inner{
+	position: relative;
+	width: 50%;
+	margin: auto;
+	margin-top: 20px;
+	padding-bottom: 180px;
+	max-width: 800px;
+	//background-color: #f9f9f9;   
+}
+
+.idPwdSearch_inner{
+	position: relative;
+	width: 50%;
+	margin: auto;
+	margin-top: 40px;
+	padding-bottom: 180px;
+	max-width: 800px;
+}
+
+/* id_search_ok.jsp & pwd_search_ok.jsp */
+.textBox{
+	text-align: center;
+	padding: 3em;
+	background-color: #f9f9f9;
+}
+
+.textBox .idSearch_coment{
+	text-align: center;
+}
+
+.idInfo{
+	color: #989442;
+}
+
+.textBox .confirm_submit{
+	background: #151515 !important;
+    color: #fff !important;
+    height: 60px;
+    padding: 0 25px;
+    margin: 30px 0 0;
+    line-height: 58px;
+    font-size: 18px;
+    letter-spacing: -.01em;
+    width: 50% !important;
+} 
+
+input{
+	cursor: pointer;
+}
+
+/* joinForm.jsp */
+.join_inner{
+	position: relative;
+	width: 85%;
+	margin: auto;
+	margin-top: 200px;
+	padding-bottom: 180px;
+}
+
+.joinBox{
+	width: 25%;
+	background-color: #f9f9f9;
+	float: left;
+	height: 1060px;
+}
+
+.join_title{		/* ★ sign_title에서 변경  */
+	font: 500 50px playfair;
+	font-family: 'Playfair Display SC', serif;
+	color: #151515;
+	font-feature-settings: 'lnum', 'pnum';
+	text-align: center;   /* 추가 */
+	margin-top: 30%
+}
+
+.joinInfo{
+	display: table;
+	padding: 2em;
+	width: 75%
+}
+
+.userJoin{
+	position: relative;
+	margin-bottom: 10px;
+}
+
+.joinTxt{
+	border: 1px solid black;
+	border-left: hidden;
+	border-right: hidden;
+	border-top: hidden;
+	opacity: 0.5;
+	width: 30%;
+	min-width: 300px;
+	height: 50px;
+	margin-bottom: 25px;
+}
+
+.join_submit{
+	background: #151515 !important;
+    color: #fff !important;
+    height: 50px;
+    padding: 0 25px;
+    font-size: 15px;
+    letter-spacing: -.01em;
+    border-style: none;   /* 추가 */
+    min-width: 180px;
+}
+
+.join_submit_no{
+	background: #fff !important;
+    color: black !important;
+    height: 50px;
+    padding: 0 25px;
+    font-size: 15px;
+    letter-spacing: -.01em;
+    min-width: 180px;
+    border: 0.1px solid; 
+}
+
+.joinFormBtn{
+	background: #fff !important;
+    color: black !important;
+    height: 50px;
+    padding: 0 25px;
+    font-size: 15px;
+    letter-spacing: -.01em;
+    border: 0.1px solid;   /* 추가 */
+    position: absolute;
+    margin-left: 20px;
+    min-width: 180px;
+}
+
+#check{
+	margin-left: 10px;
+}
+
+.join-submit{
+	margin-left: 10%;
+}
+
+div.radio-wrap {
+  display: inline-flex;
+  align-items: center;
+}
+
+.checks{
+	
+	margin-bottom: 10px;
+}
+
+input[type='radio'],
+input[type='radio']:checked {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
+  margin-right: 15px;	
+  margin-bottom: 4px;
+}
+
+input[type='radio'] {
+  background-color: white;
+  border: 0.1px solid black;
+}
+input[type='radio']:checked {
+  background-color: black;
+}
+
+.UserGen{
+	margin-left: 30px;
+}
+
+.margin-gen{
+	margin-bottom: 10px;
+}
+
+.select-box{
+	position: absolute;
+	width: 200px; /* 너비설정 */ 
+	border: 1px solid #999; /* 테두리 설정 */ 
+	z-index: 1;
+	height: 50px;
+	margin-left: 10px;
+	padding-left: 10px;
+}
+
+.select-box:before { /* 화살표 대체 */ 
+	content: ""; 	
+	position: absolute; 
+	top: 50%; 
+	right: 15px;
+	width: 0; 
+	height: 0; 
+	margin-top: -1px; 
+	border-left: 5px solid transparent; 
+	border-right: 5px solid transparent; 
+	border-top: 5px solid #333; 
+}
+
+.select-box select { 
+	width: 100%; 
+	height: auto; /* 높이 초기화 */ 
+	line-height: normal; /* line-height 초기화 */ 
+	font-family: inherit; /* 폰트 상속 */ 
+	padding: .8em .5em; /* 여백과 높이 결정 */ 
+	border: 0; opacity: 0; /* 숨기기 */ 
+	filter:alpha(opacity=0); /* IE8 숨기기 */ 
+	-webkit-appearance: none; /* 네이티브 외형 감추기 */ 
+	-moz-appearance: none; appearance: none; 
+
+}
+

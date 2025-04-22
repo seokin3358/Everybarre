@@ -1,0 +1,557 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display+SC&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+.mainpageTxt .mainBG img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.mainpageTxt .mainTxt{
+    position: relative;
+    color: white;
+    text-align: center;
+    font-size: 60px;
+    width: 100%;
+    margin-bottom: 50px;
+    font-family: 'Playfair Display SC', serif;
+}
+
+.mainRes {
+    position: relative;
+}
+
+
+.reservation{
+    display: flex;
+    position: absolute;
+	width: 100%;
+	justify-content: center;
+}
+
+.line-tag:before{
+	content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 1px;
+    height: 64px;
+    background: #fff;
+    opacity: .2;
+}
+
+.main-div{
+	display: block;
+    font: 400 20px/1 gothamB;
+    color: #fff;
+    padding-top: 4px;
+}
+
+.reservation li {
+    list-style: none;
+    color: white;
+}
+
+.mainRes .hotel {
+    width: 100%;
+    color: white;
+    font-size: 30px;
+}
+.reservation .tit{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    top: 10px;
+    font: 400 14px/1 gothamM;
+    color: #b3b3b3;
+    letter-spacing: -1px;
+    margin-bottom: 5px;  
+}
+
+.reservation a{
+    text-decoration: none;
+}
+
+.reservation .num{
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+    line-height: 30px;
+}
+
+.room-name{
+	margin-right: 20px;
+}
+
+.check {
+    background-color: transparent;
+}
+
+.ser_btn{
+    size: 10px;
+    margin-left: 10px;
+    cursor: pointer;
+    padding: 0 20px;
+    background-color: transparent;
+    border: solid 1px white;
+    color: white;
+
+}
+
+.check_InOut {
+    padding: 0 20px;
+}
+
+/* 새로운 Main CSS */
+.selectWrap{
+	display: inline-block;
+	position: relative;
+	heigth: 64px;
+	background: transparent;
+}
+
+.text-ui{
+	border-bottom: 0;
+    font: 600 20px gothamB;
+    padding-left: 20px;
+    height: 64px;
+    background: transparent;
+    color: #fff;
+    padding-top: 30px;
+}
+
+
+.rBox {
+	position: relative;
+    display: inline-block;
+    min-width: 43px;
+    margin-left: 20px;
+    text-align: center;
+}
+
+.rBox >span{
+	display: block;
+    font: 400 20px/1 gothamB;
+    color: #fff;
+    padding-top: 4px;
+}
+
+.line_tag:before{
+	content: '';
+    display: block;
+    position: absolute;
+    width: 1px;
+    height: 40px;
+    background: #fff;
+    opacity: .2;
+}
+
+.member_num{
+	padding: 0 20px;
+}
+
+/* 어린이 어른 선택 */
+
+.member_modal{
+	margin: 20px;
+}
+
+.numMember{
+	width: 100%;
+    float: left;
+    position: relative;
+    padding: 20px 0;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 20px;
+}
+
+.numMember span{
+    display: block;
+    text-align: center;
+    width: 124px;
+    color: #000;
+    margin: 0 auto;
+    font-family: gothamL;
+}
+
+.numMember button{
+	position: absolute;
+}
+
+.numMember button.btnUp{
+	right: 0;
+	top: 20px;
+}
+
+.numMember_button{
+	text-align: center;
+}
+
+.numMember_button button{
+	margin-top: 20px;
+    border: 1px solid #000;
+    transition: color 0.5s ease-in-out;
+    font-family: gothamL, notokrL;
+    padding: 12px 80px 12px 80px;
+}
+
+/* 2번째 세션 CSS */
+
+.slide_box{
+    background: #fff;
+    height: auto;
+    width: 50%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    margin: 50px auto 0px auto;
+    min-height: 500px;
+    min-width: 700px;
+    align-items: center;
+    max-height: 80%;
+}
+
+.slide_box_mobile{
+    background: #fff;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    margin: 0px auto 0px auto;
+    align-items: center;
+    width:70%;
+}
+
+.fp_bg_1{
+	top: 0;
+    bottom: 0;
+    width: 100%;
+    position: absolute;
+    z-index: -1;
+    background-repeat: no-repeat;
+    max-width: 33.4%;
+    background-size: cover;
+    max-height: 100%;
+}
+
+.fp_bg_2{
+	top: 0;
+    bottom: 0;
+    width: 100%;
+    position: absolute;
+    z-index: -1;
+    background-repeat: no-repeat;
+    max-width: 33.4%;
+    background-size: cover;
+    max-height: 100%;
+}
+
+.fp_bg_3{
+	top: 0;
+    bottom: 0;
+    width: 100%;
+    position: absolute;
+    z-index: -1;
+    background-repeat: no-repeat;
+    max-width: 33.4%;
+    background-size: cover;
+    max-height: 100%;
+}
+
+
+.cont3{
+	 height: 90%;
+}
+
+.cont .tit{
+	 font: 400 60px playfair;
+	 font-family: 'Playfair Display SC', serif;
+	 display: block;
+}
+.cont .tit_mobile{
+	 font: 400 24px playfair;
+	 font-family: 'Playfair Display SC', serif;
+	 display: block;
+}
+
+.cont .sTit{
+	font: 400 20px gothamM;
+    margin-top: 10px;
+    display: block;
+}
+
+/* 페이지 2의 3번째 페이지 효과 */
+
+.image_text{
+	position: relative;
+	margin-top: 30px;
+	height: 60%;
+}
+
+
+.txt01{
+	font-size: 25px;
+    margin-top: 30px;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+.txt01_mobile{
+	font-size: 16px;
+    margin-top: 30px;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+.txt01_image {
+	width: 60%;
+    float: right;
+    margin-right: 50px;
+}
+
+.txt02{
+	font-size: 20px;
+    margin: 5px 0 40px;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+.text_ab{
+	width: 40%;
+    padding: 30px;
+    position: absolute;
+    margin: 4% 5% 5% 5%;
+    background-color: #f4f4f4;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 300;
+    font-size: 18px;
+}
+
+.page_button{
+	margin-top: 20px;
+}
+
+.btnM{
+	border: 1px solid black;
+	min-width: 162px;
+   padding: 10px 25px 11px 25px;
+	font-size: 17px;
+    letter-spacing: -.01em;
+}
+
+/* 페이지 2의 2번째 페이지 효과 */
+
+.cont2{
+	width: 90%;
+    text-align: left;
+}
+
+.brand_text .tit{
+	letter-spacing: -1px;
+	position: relative;
+    display: block;
+    font: 500 110px/1.46 playfair;
+    text-transform: capitalize;
+    color: #d9a8b8;
+}
+
+.brand_text .tit::before {
+    content: '';
+    width: 20%;
+    right: 0;
+    top: 92px;
+    position: absolute;
+    height: 3px;
+    background: #d9a8b8;
+    overflow: hidden;
+}
+
+.brand_text .tit::after {
+    content: '';
+    width: 80%;
+    left: 0;
+    bottom: -69px;
+    position: absolute;
+    height: 3px;
+    background: #d9a8b8;
+    overflow: hidden;
+}
+
+.brand_text .txt{
+	 display: block;
+    padding: 51px 0 13px;
+    text-align: right;
+    color: #d9a8b8;
+}
+
+
+
+.swipeBox{
+	display: flex;
+	height: 100%;
+	margin-left: 53px;
+	align-items: center;
+    justify-content: center;
+}
+
+.inner{
+    width: 65%;
+    height: 65%;
+    position: absolute;
+    left: 50%;
+    top: 25%;
+    transform: translateX(-50%);
+    min-width: 1290px;
+    max-height: 535px;
+}
+
+.offer{
+	 font-weight: bold;
+	 margin-bottom: 30px;
+	 text-align: center;
+}
+
+.thum{
+	position: relative;
+    width: 360px;
+    height: 249px;
+    overflow: hidden;
+}
+
+.thum img{
+	 width: 360px;
+    height: 249px;
+}
+
+img{
+	border: 0;
+	vertical-align: top;
+}
+
+.swipeCont{
+	width: 360px;
+	height: 100%;
+	float: left;
+    margin-right: 50px;
+}
+
+
+.inner .tit{
+	font-size: 26px;
+    font-family: 'Playfair Display SC', serif;
+    font-weight: 400;
+    display: block;
+    line-height: 30px;
+    margin-top: 5px;
+    
+}
+
+.inner .txt{
+	font-family: 'Noto Sans KR', sans-serif;
+	text-overflow: ellipsis;
+	margin-top: 7px;
+	width: 360px;
+	color: #333;
+	font-size: 16px;
+	display: -webkit-box;
+    -webkit-line-clamp: 2;
+}
+
+.inner .date{
+	font-size: 16px;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 400;
+    margin-top: 5px;
+    color: #333;
+}
+
+.inner .locationTag{
+	display: block;
+	font-family: 'Noto Sans KR', sans-serif;
+	background: #d199ab;
+	font-size: 15px;
+	font-weight: 400;
+	margin-top: 40px;
+	padding: .5em .64em;
+    color: #fff;
+    width: fit-content;
+}
+
+/* 이미지 움직이는 효과  */
+
+span.thum * {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-transition: all 0.35s ease;
+  transition: all 0.35s ease;
+}
+span.thum img {
+  max-width: 100%;
+  backface-visibility: hidden;
+  vertical-align: top;
+}
+span.thum:after,
+span.thum figcaption {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+span.thum:after {
+  content: '';
+  background-color: rgba(0, 0, 0, 0.65);
+  -webkit-transition: all 0.35s ease;
+  transition: all 0.35s ease;
+  opacity: 0;
+  height: 225px;
+}
+span.thum figcaption {
+  z-index: 1;
+  padding: 40px;
+}
+span.thum h3,
+span.thum .links {
+  width: 100%;
+  margin: 5px 0;
+  padding: 0;
+}
+span.thum h3 {
+  line-height: 1.1em;
+  font-weight: 700;
+  font-size: 1.4em;
+  text-transform: uppercase;
+  opacity: 0;
+  color: white;
+  font-family: 'Roboto', sans-serif;
+}
+span.thum p {
+  font-size: 0.8em;
+  font-weight: 300;
+  letter-spacing: 1px;
+  opacity: 0;
+  top: 50%;
+  -webkit-transform: translateY(40px);
+  transform: translateY(40px);
+  color: white;
+  font-family: 'Roboto', sans-serif;
+}
+span.thum i {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  padding: 20px 25px;
+  font-size: 34px;
+  opacity: 0;
+  -webkit-transform: translateX(-10px);
+  transform: translateX(-10px);
+}
+span.thum a {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  height: 240px;
+}

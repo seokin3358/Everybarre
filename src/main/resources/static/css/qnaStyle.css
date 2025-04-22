@@ -1,0 +1,554 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display+SC&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+
+
+.topArea{
+	display: table;
+    position: relative;
+    width: 1400px;
+    margin: 0 auto;
+    margin-top: 100px;
+}
+
+.topInner{
+	display: table-cell;
+    padding: 97px 0 90px;
+}
+
+.titDep1{
+	font-weight: 500;
+	font-size: 60px;
+	font-family: 'Playfair Display SC', serif;
+}
+
+.pageGuide{
+	margin-top: 18px;
+    font-size: 20px;
+    letter-spacing: -.01em;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+.inner{
+	position: relative;
+    width: 1400px;
+    margin: 0 auto;
+    padding-bottom: 180px;
+}
+
+.inner .infoData {
+	margin-top: 25px;
+	font-size: 20px;
+}
+ .inner .infoData p {
+	float: left;
+	padding: 0 20px 0 0;
+	font-weight: bold;
+}
+ .inner .infoData li {
+	float: left;
+}
+.inner .infoData li+p:before{
+	display: inline-block;
+	content: '';
+	width: 1px;
+	height: 18px;
+	background: #ccc;
+	margin: 0 20px;
+	vertical-align: middle;
+}
+.inner .infoData:after {
+	content: '';
+    width: 100%;
+}
+
+.inner .qna_cont .qna_txtBox{
+	margin-top: 30px;
+	padding: 30px 0;
+	border-top: 1px solid black;
+	
+	
+}
+.inner .qna_txtBox p {
+	padding: 0 0 40px 0;
+}
+.inner .qna_txtBox #file_p {
+	font-weight: bold;
+	padding: 0;
+}
+.inner #btn_p{
+	text-align: end;
+	padding: 20px;
+}
+.inner #btn_list{
+	text-align: center;
+	padding: 20px;
+	margin-top: 20px;
+}
+.inner .qna_txtBox #qna_del{
+	padding: 0 10px;
+	font-size: 20px;
+	background-color: transparent;
+	border : 1px solid black;
+	cursor: pointer;
+}
+.inner .qna_reply{
+	border-top : 1px solid #ccc;
+	padding: 0 50px;
+	background: #f9f9f9;
+	margin-bottom: 30px;
+}
+
+.inner .qna_reply .qna_txtBox{
+	margin-top: 30px;
+	padding: 30px 0;
+}
+.inner .qna_reply .titDep2 {
+	font-size: 24px;
+}
+.inner .qna_reply .qna_topArea{
+	padding: 20px 0;
+	margin-top: 30px;
+	background: #f9f9f9;
+}
+.inner .qna_reply .qna_topArea ul:after{
+	padding-top: 20px;
+	width: 100%;
+	content: "";
+	border-bottom : 1px solid #ccc;
+}
+.inner .shortList .prev{
+	border-top: 1px solid #ccc;
+}
+.inner .shortList li{
+	padding: 20px 0;
+	border-bottom: 1px solid #ccc;
+}
+.inner .shortList span {
+	padding: 0 20px 0 0;
+}
+.inner #reply_btn {
+	padding: 0 10px;
+	font-size: 20px;
+	background-color: transparent;
+	border : 1px solid black;
+	cursor: pointer;
+	text-align: end;
+	margin-left: 15px;
+}
+.inner #list_btn {
+	padding: 10px 40px;
+	font-size: 20px;
+	background-color: transparent;
+	border : 1px solid black;
+	cursor: pointer;
+	text-align: center;
+	margin-left: 15px;
+}
+.myContents{
+	position: relative;
+}
+
+.titDep2{
+	font-size: 30px;
+	font-weight: 500;
+	font-family: 'Roboto', sans-serif;
+	
+}
+
+.searchBox{
+	margin: 35px auto;
+    padding: 26px 30px 26px;
+    background: #f9f9f9;
+}
+
+.searchOp{
+	position: relative;
+    margin-bottom: 30px;
+}
+
+.selectWrap{
+	display: inline-block;
+    position: relative;
+    height: 60px;
+    background: #fff;
+    width: 15%
+}
+
+.intWord{
+	margin: 0 0 0 40px;
+    display: inline-block;
+    width: 80%
+}
+
+.intArea{
+	display: inline-block;
+	width: 100%;
+}
+
+.select_ct{
+	display: inline-block;
+    position: relative;
+    width: 100%;
+    height: 60px;
+    line-height: 58px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    border: none;
+    border-bottom: 1px solid #000;
+    color: #333;
+    text-align: left;
+    cursor: pointer;
+    font-family: gothamL,notokrL;
+    background-color: transparent;
+}
+
+.searchBox .selectWrap, .searchBox .selectWrap .ui-selectmenu-button, .searchBox .intArea input {
+    background-color: transparent;
+}
+
+.search_txt{
+	height: 60px;
+    padding: 8px 13px 8px 0;
+    color: #000;
+    border: solid #ccc;
+    border-width: 0 0 1px 0;
+    vertical-align: middle;
+    font-size: 18px;
+    font-family: gothamL,notokrL;
+    width: 100%;
+}
+
+.btnWrap{
+	text-align: center;
+}
+
+.search_button{
+	background: transparent;
+	min-width: 162px;
+    height: 50px;
+    padding: 0 25px;
+    line-height: 48px;
+    font-size: 17px;
+    letter-spacing: -.01em;
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    box-sizing: border-box;
+    color: #000;
+    border: 1px solid #000;
+    cursor: pointer;
+}
+
+.qnaType{
+	position: relative;
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+    margin-bottom: 10px;
+}
+
+.qnaType li{
+	position: relative;
+    display: table-cell;
+    border: solid #aaa;
+    border-width: 1px 0 0 1px;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    font-size: 18px;
+    font-family: 'Noto Sans KR', sans-serif;
+    letter-spacing: -1px;
+    text-transform: uppercase;
+}
+
+.qnaType li:last-child {
+    border-right: 1px solid #aaa;
+}
+
+#type0{
+	width: 10%;
+}
+
+#type1{
+	width: 50%;
+}
+
+.qnaList #type1{
+	width: 50%;
+	text-align: left;
+}
+
+#type2{
+	width: 15%;
+}
+
+#type3{
+	width: 10%;
+}
+
+#type4{
+	width: 15%;
+}
+
+listTit{
+	width: 10%;
+}
+
+.qnaList{
+	position: relative;
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+}
+
+.qnaList li{
+	position: relative;
+    display: table-cell;
+    border: solid #aaa;
+    border-width: 0 0 1px 0;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    font-size: 18px;
+    font-family: 'Noto Sans KR', sans-serif;
+    letter-spacing: -1px;
+    text-transform: uppercase;
+}
+
+.qna_paging{
+	margin-top: 60px;
+    text-align: center;
+}
+
+.qna_paging .select_page{
+	border: 1px solid #000;
+    background: #f9f9f9;
+    box-sizing: border-box;
+    color: #000;
+}
+
+.qna_paging > *{
+	display: inline-block;
+    width: 50px;
+    height: 50px;
+    border: 1px solid #ccc;
+    line-height: 50px;
+    margin: 0 4px;
+    color: #666;
+    font-family: 'Noto Sans KR', sans-serif;
+    box-sizing: border-box;	
+}
+
+.write_button{
+	height: 50px;
+}
+
+.qna_write_button{
+	right: 0px;
+	background: #fff !important;
+    color: black !important;
+    height: 50px;
+    padding: 0 25px;
+    font-size: 15px;
+    letter-spacing: -.01em;
+    border: 0.1px solid;
+    position: absolute;
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+
+/* QNA_WRITE 디자인 */
+
+.txtBox{
+	position: relative;
+    background: #f9f9f9;
+    padding: 40px 30px;
+    margin-top: 15px;
+}
+
+.txtBox .txt{
+	font-weight: 400;
+	font-size: 18px;
+	font-family: 'Noto Sans KR', sans-serif;
+}
+
+
+.intWarp{
+	margin-top: 35px;
+}
+
+.intList > li .tit{
+	display: inline-block;
+    position: relative;
+}
+
+
+.intList > li .tit label{
+	display: inline-block;
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    line-height: 1;
+    color: #333;
+    text-transform: uppercase;
+}
+
+.intList input[type=text]{
+	height: 60px;
+    padding: 8px 13px 8px 0;
+    color: #000;
+    border: solid #ccc;
+    border-width: 0 0 1px 0;
+    vertical-align: middle;
+    font-size: 18px;
+    font-family: 'Noto Sans KR', sans-serif;
+    width: 100%
+}
+
+#dsId{
+	border-width: 0;
+	width: 50%
+}
+
+.intInner .intArea>textarea {
+    margin-top: 7px;
+}
+
+#dsTitle{
+	width: 70%;
+}
+
+textarea.noLine {
+    height: 115px;
+    border: 0;
+    border-bottom: 1px solid #ccc;
+    width: 70%;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+.intList > li .txtGuide {
+}
+
+p.txtGuide, .txtGuide li {
+    position: relative;
+    color: #888;
+    font-family: 'Noto Sans KR', sans-serif;
+    letter-spacing: -.01em;
+    margin-bottom: 20px;
+    margin-top: 5px;
+}
+
+.txtContGuide{
+	margin-top: -3px !important;
+}
+
+/* 파일 업로드 부분 CSS */
+
+.intDel .btnDel {
+    display: none;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    color: transparent;
+    width: 14px;
+    height: 14px;
+    margin-top: -7px;
+    line-height: 0;
+    cursor: pointer;
+}
+
+.btnSC{
+	position: relative;
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    box-sizing: border-box;
+    color: #000;
+    border: 1px solid #000;
+    background: #fff;
+    transition: color 0.5s ease-in-out;
+    overflow: hidden;
+    z-index: 1;
+    font-family: 'Noto Sans KR', sans-serif;
+    cursor: pointer;
+}
+
+.btnM{
+    height: 60px;
+    padding: 0 25px;
+    line-height: 55px;
+    font-size: 17px;
+    letter-spacing: -.01em;
+    margin-left: 10px;
+    cursor: pointer;
+}
+	
+
+.fileUpload>.btnSC.btnM {
+    position: absolute;
+    top: 5px;
+}
+
+.fileUpload label {
+    margin-left: 20px;
+}
+
+.fileUpload{
+	float: left;
+	width: 40%;
+}
+
+
+input[type="file"] {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    border: 0;
+}
+
+.btnArea{
+	text-align: center;
+    margin-top: 78px;
+}
+
+.qna_write_submit{
+	background: #151515 !important;
+    color: #fff !important;
+    height: 50px;
+    padding: 0 25px;
+    font-size: 15px;
+    letter-spacing: -.01em;
+    border-style: none;   /* 추가 */
+    min-width: 180px;
+    cursor: pointer;
+}
+
+.qna_write_reset{
+	background: #fff !important;
+    color: black !important;
+    height: 50px;
+    padding: 0 25px;
+    font-size: 15px;
+    letter-spacing: -.01em;
+    min-width: 180px;
+    border: 0.1px solid; 
+    cursor: pointer;
+}
+
+/* 검색 리스트 없을 때 설정 */
+
+.qnaTab h3{
+	margin: 100px 0 100px 0;
+    text-align: center;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+

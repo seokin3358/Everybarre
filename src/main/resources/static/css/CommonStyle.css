@@ -1,0 +1,31 @@
+@charset "UTF-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap');
+
+
+/* Common */
+body,p,h1,h2,h3,h4,h5,h6,ul,ol,li,dl,dt,dd,table,form,fieldset,legend,input,textarea,button,select,div{margin:0;padding:0;box-sizing:border-box;word-break:keep-all;word-wrap:break-word}
+td,th{margin:0;padding:0;word-break:keep-all;word-wrap:break-word}
+body,input,textarea,select,button,table,th,td,pre{color:#000;font-family:notokrL, gothamL, playfair;font-weight:400;font-size:18px;line-height:1.8}
+h1,h2,h3,h4,h5,h6{font-weight:normal;line-height:1.2}
+/* img,fieldset,iframe{border:0;vertical-align:top} */
+textarea{resize:none;font-size:16px}
+ul,ol{margin:0;padding:0;list-style:none}
+ul:after,ol:after{content:'';display:block;clear:both}
+em,address{font-style:normal}
+input,select{vertical-align:middle}
+table{width:100%;border-collapse:separate;empty-cells:show;border-spacing:0}
+hr,legend{display:none}
+caption{overflow:hidden;position:static;top:0;left:0;width:0;height:0;font-size:0;line-height:0;text-transform:uppercase}
+strong, b{font-weight:500}
+button{box-sizing:border-box;border:none;background:none;}
+/*button:focus{outline:1px dashed #e0e0e0}*/
+label{cursor:pointer}
+
+a{color:inherit;text-decoration:none}
+/*a:hover{text-decoration:underline}*/
+a{box-sizing:border-box}
+
+a, button{cursor:pointer}
+[tabindex="-1"]{outline:0}
+[tabindex="0"]:focus{outline:1px dashed #e0e0e0}
