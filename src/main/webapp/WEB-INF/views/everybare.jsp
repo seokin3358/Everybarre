@@ -73,9 +73,12 @@ int storeCount = (storeList != null) ? storeList.size() : 0;
         <link rel="stylesheet" href="css/isotope/style.css">
 
         <!--Main Stylesheet-->
-        <link href="css/style.css" rel="stylesheet">
+        <link href="css/style2.css" rel="stylesheet" media="screen and (min-width: 769px)">
+        <link href="css/font.css" rel="stylesheet">
+        <link rel="stylesheet" href="css/mobile.css" media="screen and (max-width: 768px)"/>
+        
         <!--Responsive Framework-->
-        <link href="css/responsive.css" rel="stylesheet">
+        <!-- <link href="css/responsive.css" rel="stylesheet"> -->
         
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -87,7 +90,7 @@ int storeCount = (storeList != null) ? storeList.size() : 0;
         <script src="https://js.tosspayments.com/v2/standard"></script>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
 <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
-        <style>    
+        <style>   
          .video-container {
     position: relative;
     width: 100%;
@@ -104,7 +107,7 @@ int storeCount = (storeList != null) ? storeList.size() : 0;
     height: 100%;
     border: 0;
   }
-@font-face {
+/* @font-face {
     font-family: 'Cafe24OhsquareAir-v2.0';
     src: url('/fonts/Cafe24OhsquareAir-v2.0.otf') format('opentype');
 }
@@ -112,10 +115,10 @@ int storeCount = (storeList != null) ? storeList.size() : 0;
         body, html {
         font-family: "Cafe24OhsquareAir-v2.0", sans-serif;
 		  font-style: normal;
-        }
+        } */
        /* 📌 헤더 스타일 */
 .header_menu {
-    position: fixed;
+    position: flex;
     width: 100%;
     height: 60px; /* 고정 높이 */
     background-color: #e94560;
@@ -327,7 +330,6 @@ video {
 	
 	  .slider_overlay {
 	    height: auto;
-	    padding-top: 15%; /* 16:9 비율 유지용 여백 */
 	    position: relative;
 	  }
 	
@@ -413,6 +415,7 @@ video {
 
   @media screen and (max-width: 768px) {
     .desktop-view { display: none !important; }
+    .swiper-pagination-horizontal { display: none !important; }
     .mobile-view { display: block !important; }
   }
   /* 리디자인된 CTA 영역 */
@@ -472,56 +475,53 @@ video {
 
     <body data-spy="scroll" data-target="#header">
 
-        <!--Start Hedaer Section-->
-        <section id="header">
-            <div class="header-area">              
-                <div class="header_menu text-center" data-spy="affix" data-offset-top="50" id="nav">
-                    <div class="container">
-                        <nav class="navbar navbar-default zero_mp ">
-                            <!-- Brand and toggle get grouped for better mobile display -->
-                            <div class="navbar-header">
-                                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                                    <span class="sr-only">Toggle navigation</span>
-                                    <span class="icon-bar"></span>
-                                    <span class="icon-bar"></span>
-                                    <span class="icon-bar"></span>
-                                </button>
-                                <a class="navbar-brand custom_navbar-brand" href="/everybare.do"><img src="/static_uploads/img/logo.png" alt=""></a>
-                            </div>
-                            <!--End of navbar-header-->
-
-                            <!-- Collect the nav links, forms, and other content for toggling -->
-                            <div class="collapse navbar-collapse zero_mp" id="bs-example-navbar-collapse-1">
-                                <ul class="nav navbar-nav navbar-right main_menu">
-                                    <li class="active"><a href="#header" class="scroll_move">Home <span class="sr-only">(current)</span></a></li>
-                                    <li><a href="#" class="bookButton">book</a></li>
-                                    <% if (userName != null) { %>
-						                <!-- 로그인 상태일 때 -->
-						                <li><a href="/mypage.do">My Page</a></li> <!-- 마이페이지 버튼 -->
-						                <li><a href="/logout.do">Logout</a></li> <!-- 로그아웃 버튼 -->
-						            <% } else { %>
-						                <!-- 로그인되지 않았을 때 -->
-						                <li><a href="/barelogin.do">Login</a></li> <!-- 로그인 버튼 -->
-						            <% } %>
-                                    <li><a href="#contact_us" class="scroll_move" >contact us</a></li>
-                                </ul>
-                            </div>
-                            <!-- /.navbar-collapse -->
-                        </nav>
-                        <!--End of nav-->
-                    </div>
-                    <!--End of container-->
-                </div>
-                <!--End of header menu-->
-            </div>
-            <!--end of header area-->
-        </section>
-        <!--End of Hedaer Section-->
+<header>
+  <div class="header desktop-view">
+    <div class="header-inner">
+      <div class="logo">
+        <img src="/img/every-barre-logo.svg" alt="every barre" />
+      </div>
+      <nav class="nav">
+        <ul>
+          <li><a href="/everybare.do">HOME</a></li>
+          <li><a href="/everybare.do">ABOUT</a></li>
+         <!--  <li><a href="#" onclick="document.getElementById('storeModal').style.display='flex'">BOOK</a></li> -->
+          <li>
+            <% if (userName != null) { %>
+              <a href="/logout.do">LOGOUT</a>
+            <% } else { %>
+              <a href="/barelogin.do">LOGIN</a>
+            <% } %>
+          </li>
+          <li><a href="#contact">CONTACT US</a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+  <div class="mobile-view">
+  	  <div class="logo">
+        <img src="/img/every-barre-logo.svg" alt="every barre" />
+      </div>
+      <button class="menu-toggle" onclick="toggleMenu()">
+        <img id="menuIcon" src="/img/menu-icon.svg" alt="menu icon" />
+      </button>
+      <nav class="nav" id="mobileNav">
+        <a href="/everybare.do">HOME<span class="dot"></span></a>
+        <a href="#">ABOUT<span class="dot"></span></a>
+        <% if (userName != null) { %>
+              <a href="/logout.do">LOGOUT<span class="dot"></span></a>
+            <% } else { %>
+              <a href="/barelogin.do">LOGIN<span class="dot"></span></a>
+            <% } %>
+        <a href="#contact">CONTACT US<span class="dot"></span></a>
+      </nav>
+  </div>
+</header>
 
 
 
-        <!--Start of slider section-->
-        <section id="slider">
+    <main>
+  <section id="slider">
             <div id="carousel-example-generic" class="carousel slide carousel-fade" data-ride="carousel" data-interval="3000">
                 <div class="carousel-inner" role="listbox">
                     <div class="item active">
@@ -541,9 +541,9 @@ video {
                               
                             <div class="carousel-caption">
                                 <div class="slider_text">
-								        <h3 id="mainTitle">로딩중...</h3>
-   										 <p id="mainDesc">불러오는 중입니다</p>
-								    <a href="#" class="bookButton">BOOK</a>
+								        <h2 class="intro-title" id="mainTitle">로딩중...</h2>
+   										 <p class="intro-description" id="mainDesc">불러오는 중입니다</p>
+								    <!-- <a href="#" class="bookButton">BOOK</a> -->
 								</div>
                             </div>
                         </div>
@@ -553,102 +553,57 @@ video {
             </div>
         </section>
 
-<% if (userName == null) { %>
-        <!--Start of volunteer-->
-<section id="volunteer" class="highlight-cta">
-  <div class="container">
-    <div class="volunteer-inner">
-      <h2>🎉 지금 에블바레와 함께하세요!</h2>
-      <p>지금 회원가입하고 수업 예약부터 시작해보세요!</p>
-      <!-- https://rebornbb.tistory.com/entry/HTML-iframe-%EC%9C%A0%ED%8A%9C%EB%B8%8C-%EB%8F%99%EC%98%81%EC%83%81-%EC%9E%90%EB%8F%99-%EC%97%B0%EC%86%8D%EC%9E%AC%EC%83%9D
-      <iframe width="2511" height="1157" src="https://www.youtube.com/embed/YuzuDRiW-GI?autoplay=1&mute=1&controls=0&loop=1&playlist=YuzuDRiW-GI" title="차갑게 얼어버린 월급을 안주 삼아 한잔합니다." frameborder="0" allow="accelerometer; autoplay=1; mute=1; controls=0; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> -->
-      <a href="/barelogin.do" class="cta-btn">Join Us →</a>
+  <% if (userName == null) { %>
+  <section class="cta-section">
+    <div class="main-inner">
+      <h3 class="cta-title">지금 에블바레와 함께하세요!</h3>
+      <p class="cta-description">지금 회원가입하고 수업 예약부터 시작해보세요!</p>
+      <a href="/barelogin.do" class="join-btn">JOIN US</a>
     </div>
-  </div>
-</section>
+  </section>
+  <% } %>
 
-        <!--end of volunteer-->
-<% } %>
-
-        <section id="blog">
-  <div class="container">
-
-    <div class="row">
-      <div class="col-md-12">
-        <div class="latest_blog text-center">
-            <h2 id="blogTitle">로딩중...</h2>
-    		<p id="blogDesc">불러오는 중입니다</p>
-        </div>
-      </div>
+  <section class="magazine-section">
+    <div class="main-inner">
+      <h2 class="magazine-title" id="blogTitle">로딩중...</h2>
+      <p class="magazine-description" id="blogDesc">불러오는 중입니다</p>
     </div>
-
-    <!-- 💻 데스크탑용: 기존 3열 구조 -->
-    <div class="row desktop-view">
-      <div class="col-md-4">
-        <div class="blog_news">
-          <div class="single_blog_item">
-            <div class="blog_img">
-              <img src="/static_uploads/img/에사회1.jpg" alt="">
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-4">
-        <div class="blog_news">
-          <div class="single_blog_item">
-            <div class="blog_img">
-              <img src="/static_uploads/img/에사회2.jpg" alt="">
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-4">
-        <div class="blog_news">
-          <div class="single_blog_item">
-            <div class="blog_img">
-              <img src="/static_uploads/img/에사회3.jpg" alt="">
-            </div>
-          </div>
-        </div>
-      </div>
+    <div class="img-wrap desktop-view">
+      <div class="image-placeholder"><img src="/static_uploads/img/에사회1.jpg" alt="" style="width:100%;"></div>
+      <div class="image-placeholder"><img src="/static_uploads/img/에사회2.jpg" alt="" style="width:100%;"></div>
+      <div class="image-placeholder"><img src="/static_uploads/img/에사회3.jpg" alt="" style="width:100%;"></div>
     </div>
-
-    <!-- 📱 모바일용: Swiper 슬라이더 -->
     <div class="swiper-container mobile-view" style="margin-top:30px;">
       <div class="swiper-wrapper">
         <div class="swiper-slide">
-          <img src="/static_uploads/img/에사회1.jpg" alt="" style="width:100%;">
+          <img src="/static_uploads/img/에사회1.jpg" alt="" style="width:95%;">
         </div>
         <div class="swiper-slide">
-          <img src="/static_uploads/img/에사회2.jpg" alt="" style="width:100%;">
+          <img src="/static_uploads/img/에사회2.jpg" alt="" style="width:95%;">
         </div>
         <div class="swiper-slide">
-          <img src="/static_uploads/img/에사회3.jpg" alt="" style="width:100%;">
+          <img src="/static_uploads/img/에사회3.jpg" alt="" style="width:95%;">
         </div>
       </div>
       <div class="swiper-pagination"></div>
     </div>
-
-  </div>
-</section>
-
+  </section>
+</main>
 
         <!--Start of contact-->
-        <section id="contact">
+        <section id="contact" style="background-color: #eeeeee;">
             <div id="contact_us" class="container">
                 <div class="row">
                     <div class="colmd-12">
                         <div class="contact_area text-center" >
                             <h3>에블바레 오시는길</h3>
-                            <p>저희 에블바레는 총 <%= storeCount %> 개의 지점으로 이루어져 있고, 아래는 각 센터별 정보입니다.</p>
+                            <div class="desktop-view"><p>저희 에블바레는 총 <%= storeCount %> 개의 지점으로 이루어져 있고, 아래는 각 센터별 정보입니다.</p></div>
+                            <div class="mobile-view"><p>저희 에블바레는 총 <%= storeCount %> 개의 지점으로 이루어져 있고,<br />아래는 각 센터별 정보입니다.</p></div>                            
                         </div>
                     </div>
                 </div>
                 <!--End of row-->
-                <!-- 인스타이동을 팝업으로 할지 기존상황유지할지 논의, 클릭시 이동합니다 문구 추가할지. 20240824 -->
-                <div class="row">
+                <div class="row" style="padding-bottom:40px;">
                 <% for (Map<String, String> store : storeList) {
                 	String name = store.get("LOCATION");
                 	String address = store.get("ADDRESS");
@@ -660,18 +615,22 @@ video {
                     <div class="col-md-6" >
                         <div class="office">
                             <div class="title">
-                                <h5><%= name %></h5>
+                                <h3><%= name %></h3>
                             </div>
                             <div class="office_location">
                                 <div class="address">
-                                    <i class="fa fa-map-marker"><span><%= address %></span></i>
+                                    <p><%= address %></p>
                                 </div>
                                 <div class="phone">
-                                    <i class="bx bxl-instagram"><span style="cursor:pointer;" onclick="location.href='<%= instagram_link %>'"><%= instagram %></span></i>
+                                    <p><%= instagram %></p>
                                 </div>
                                 <div class="email" >
-                                    <img src="/static_uploads/img/btn_naver.svg"><span style="cursor:pointer; padding-left:15px;" onclick="location.href='<%= place_link %>'"><%= place %></span></i>
+                                    <p><%= place %></p>
                                 </div>
+                                <div class="icon-wrap">
+					            <a href="<%= store.get("NAVER_LINK") %>" target="_blank"><img class="location-icon" src="/img/map.svg" alt="지도"></a>
+					            <a href="<%= store.get("INSTA_LINK") %>" target="_blank"><img class="location-icon" src="/img/instargram.svg" alt="인스타그램"></a>
+					          </div>
                             </div>
                         </div>
                     </div>
@@ -681,11 +640,13 @@ video {
                 <!--End of row-->
             </div>
             <!--End of container-->
+        <button class="scroll-to-top" onclick="window.scrollTo({ top: 0, behavior: 'smooth' });">
+		  <img src="/img/top-arrow.svg" alt="맨 위로">
+		</button>
         </section>
-        <!--End of contact-->
-
+        
         <!--Scroll to top-->
-        <a href="#" id="back-to-top" title="Back to top">&uarr;</a>
+
         <!--End of Scroll to top-->
 		<!-- 점포 선택 모달 -->
 		<div id="storeModal" class="modal">
@@ -706,6 +667,7 @@ video {
 		    </div>
 		  </div>
 		</div>
+
 
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <!-- <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js'></script>-->
@@ -732,11 +694,6 @@ video {
         <script src="js/isotope/isotope.pkgd.min.js"></script>
         <script src="js/isotope/packery-mode.pkgd.min.js"></script>
         <script src="js/isotope/scripts.js"></script>
-
-
-        <!--Back To Top-->
-        <script src="js/backtotop.js"></script>
-
 
         <!--JQuery Click to Scroll down with Menu-->
         <script src="js/jquery.localScroll.min.js"></script>
@@ -776,7 +733,13 @@ video {
             $.get("/getSiteContent.do", { id: "blog_description" }, function(data){
                 $("#blogDesc").html(data);
             });
-
+            $(window).on('scroll', function () {
+                if ($(window).scrollTop() > 300) {
+                  $('.scroll-to-top').addClass('show');
+                } else {
+                  $('.scroll-to-top').removeClass('show');
+                }
+              });
         });
         </script>
         
@@ -818,26 +781,7 @@ video {
 			      window.location.href = "/barebook.do?store=" + encodeURIComponent(selectedStore);
 			    });
 			  }
-			});
-			/* window.onload = function () {  // ✅ 모든 요소 로드 완료 후 실행
-		        var videoElement = document.getElementById("vid"); // 🎬 비디오 태그 가져오기
-		        var sourceElement = document.getElementById("videoSource"); // 🎥 소스 태그 가져오기
-				
-		        if (!videoElement || !sourceElement) {
-		            console.error("비디오 또는 소스를 찾을 수 없습니다.");
-		            return;
-		        }
-
-		        // 🔄 랜덤 비디오 파일 선택 (barre_main_1 ~ barre_main_6)
-		        var randomIndex = Math.floor(Math.random() * 6) + 1; // 1 ~ 6 중 랜덤 숫자
-		        var randomVideo = "file/barre_main_" + randomIndex + ".MP4"; // 파일 경로
-
-		        console.log("선택된 비디오:", randomVideo); // 🎯 콘솔에서 확인
-
-		        // 🎯 src 속성 변경 후 비디오 새로고침
-		        sourceElement.src = randomVideo;
-		        videoElement.load(); // 🚀 변경된 비디오 로드
-		    }; */
+			});			
 
 		</script>
 		<script>
@@ -854,7 +798,19 @@ video {
 			    },
 			  });
 			}); 
-</script>
+		function toggleMenu() {
+	        const nav = document.getElementById("mobileNav");
+	        const icon = document.getElementById("menuIcon");
+	        nav.classList.toggle("show");
+	        if (nav.classList.contains("show")) {
+	          icon.src = "/img/close-icon.svg";
+	          icon.alt = "close icon";
+	        } else {
+	          icon.src = "/img/menu-icon.svg";
+	          icon.alt = "menu icon";
+	        }
+	      }
+	</script>
         
     </body>
 

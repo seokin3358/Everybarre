@@ -37,107 +37,23 @@
         
 
         <link rel="stylesheet" href="css/isotope/style.css">
-
-        <!--Main Stylesheet-->
-        <link href="css/style.css" rel="stylesheet">
-        <!--Responsive Framework-->
-        <link href="css/responsive.css" rel="stylesheet">
+		<!--Main Stylesheet-->
+        <link href="css/style2.css" rel="stylesheet" media="screen and (min-width: 769px)">
+        <link href="css/font.css" rel="stylesheet">
+        <link rel="stylesheet" href="css/mobile.css" media="screen and (max-width: 768px)"/>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap');
 *, ::before, ::after {
   box-sizing: border-box;
 }
-@font-face {
-    font-family: 'Cafe24OhsquareAir-v2.0';
-    src: url('/fonts/Cafe24OhsquareAir-v2.0.otf') format('opentype');
-}
-        
-        body, html {
-        font-family: "Cafe24OhsquareAir-v2.0", sans-serif;
-		  font-style: normal;
-        }
-body {
-  margin: 0;
-  padding: 0;
-  font-size: 3rem;
-  color: #23004d;
-}
-h1 {
-  margin: 0;
-}
-a {
-  text-decoration: none;
-}
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
-.login {
-  display: grid;
-  grid-template-columns: 100%;
-  min-height: 100vh;
-  margin-left: 1.5rem;
-  margin-right: 1.5rem;
-  padding-top: 120px; /* ✅ 추가 */
-}
-.login__content {
-  display: grid;
-}
-.login__img {
-  justify-self: center;
-}
-.login__img img {
-  width: 310px;
-  margin-top: 1.5rem;
-    max-width: 80vw;
-  margin-bottom: 2rem;
-}
-.login__forms {
-  position: relative;
-  height: 368px;
-}
-.login__register, .login__create {
-  position: absolute;
-  bottom: 1rem;
-  width: 150%;
-  background-color: #f2f2f2;
-  padding: 2rem 1rem;
-  border-radius: 1rem;
-  text-align: center;
-  box-shadow: 0 8px 20px rgba(35, 0, 77, 0.2);
-  animation-duration: 0.4s;
-  animation-name: animateLogin;
-}
-.login__title {
-  font-size: 3.5rem;
-  margin-bottom: 2rem;
-}
-.login__box {
-  display: grid;
-  grid-template-columns: max-content 1fr;
-  column-gap: 0.5rem;
-  padding: 1.125rem 1rem;
-  background-color: #fff;
-  margin-top: 1rem;
-  border-radius: 0.5rem;
-}
-.login__icon {
-  font-size: 3.5rem;
-  color: #4AD395;
-}
-.login__input {
-  border: none;
-  outline: none;
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: #23004d;
-  width: 100%;
-}
-.login__input::placeholder {
-  font-size: 3rem;
-  color: #a49eac;
-}
+  .desktop-view { display: flex; }
+  .mobile-view { display: none; }
+
+  @media screen and (max-width: 768px) {
+    .desktop-view { display: none !important; }
+    .swiper-pagination-horizontal { display: none !important; }
+    .mobile-view { display: block !important; }
+  }
 .login__forgot {
   display: block;
   width: max-content;
@@ -147,308 +63,13 @@ img {
   font-weight: 600;
   color: #a49eac;
 }
-.login__button {
-  display: block;
-  padding: 1rem;
-  margin: 2rem 0;
-  background-color: #4AD395;
-  color: #fff;
-  font-weight: 600;
-  text-align: center;
-  border-radius: 0.5rem;
-  transition: 0.3s;
-}
-.login__button:hover {
-  background-color: #65bf97;
-}
-.login__account, .login__signin, .login__signup {
-  font-weight: 600;
-  font-size: 2rem;
-}
-.login__account--account, .login__signin--account, .login__signup--account {
-  color: #23004d;
-}
-.login__account--signin, .login__signin--signin, .login__signup--signin, .login__account--signup, .login__signin--signup, .login__signup--signup {
-  color: #4AD395;
-  cursor: pointer;
-}
-.login__social {
-  margin-top: 2rem;
-}
-.login__social--icon {
-  font-size: 3.5rem;
-  color: #23004d;
-  margin: 0 1rem;
-}
 .block {
   display: block;
 }
 .none {
   display: none;
 }
-.navbar-header {
-  position: relative;
-  left:35%; /* 네모칸과 화살표 방향으로 로고 이동 */
-}
-.navbar-right {
-  margin-right: -15%; 
-}
-.custom_navbar-brand {
-  margin-left: 0; /* 필요하면 이 값을 조정 */
-  text-align: left; /* 정렬 */
-}
-@keyframes animateLogin {
-  0% {
-    transform: scale(1, 1);
-  }
-  50% {
-    transform: scale(1.1, 1.1);
-  }
-  100% {
-    transform: scale(1, 1);
-  }
-}
-@media screen and (min-width: 576px) {
-  .login__forms {
-    width: 348px;
-    justify-self: center;
-  }
-}
-@media screen and (min-width: 1024px) {
-  .login {
-    min-height: 100vh;
-    overflow: visible;
-  }
-  .login__content {
-    grid-template-columns: repeat(2, max-content);
-    justify-content: center;
-    align-items: center;
-  }
-  .login__img {
-    display: flex;
-    width: 600px;
-    height: 588px;
-    background-color: #fff;
-    border-radius: 1rem;
-    padding-left: 1rem;
-  }
-  .login__img img {
-    width: 80%;
-    margin-top: 0;
-  }
-  .login__register, .login__create {
-    left: -11rem;
-  }
-  .login__register {
-    bottom: -2rem;
-  }
-  .login__create {
-    bottom: -5.5rem;
-  }
-}
-@media screen and (max-width: 768px) {
-  .login__img {
-    display: none !important;
-  }
-.navbar-toggle .icon-bar {
-  background-color: white;
-  display: block;
-  width: 22px;
-  height: 2px;
-  margin: 4px auto;
-}
-  .navbar-header {
-    left: 0 !important; /* ✅ 모바일에선 왼쪽으로 초기화 */
-    flex-direction: row-reverse;
-    position: relative;
-    width: 100%;
-    display: flex;
-    justify-content: space-between; /* 로고 왼쪽, 토글 오른쪽 */
-    margin-left: 13%;
-  }
 
-  .navbar-toggle {
-    margin-right: 10px; /* 오른쪽 여백 */
-  }
-
-  .custom_navbar-brand {
-    margin-left: 10px; /* 로고 좌측 정렬 */
-  }
-	.navbar-right {
-	  margin-right: 0%; 
-	}
-
-    .header_menu {
-        height: 60px; /* 모바일에서 헤더 높이 줄이기 */
-        padding: 5px 15px;
-    }
-
-    .navbar-brand img {
-        max-width: 200px; /* 모바일에서 로고 크기 증가 */
-        height: auto;
-    }
-
-    .navbar-collapse {
-        position: absolute;
-        top: 60px;
-        left: 0;
-        width: 100%;
-        background-color: #e94560;
-        padding: 10px;
-        display: none; /* 기본적으로 숨김 */
-    }
-
-    .navbar-collapse.show {
-        display: block !important; /* 토글 시 보이도록 설정 */
-    }
-
-    .navbar-nav {
-        flex-direction: column; /* 세로 정렬 */
-        align-items: flex-start;
-    }
-
-    .navbar-nav li {
-        width: 100%;
-    }
-
-    .navbar-nav li a {
-        font-size: 14px;
-        padding: 10px;
-        display: block;
-    }
-.login__register, .login__create {
-  position: static;
-  bottom: 1rem;
-  width: 100%;
-  background-color: #f2f2f2;
-  padding: 2rem 1rem;
-  border-radius: 1rem;
-  text-align: center;
-  box-shadow: 0 8px 20px rgba(35, 0, 77, 0.2);
-  animation-duration: 0.4s;
-  animation-name: animateLogin;
-}
-  /* 1. 로그인 전체 화면 가운데 정렬 */
-  .login {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center; /* 세로 가운데 정렬 */
-    height: 100vh; /* 전체 화면 높이 */
-    padding: 1rem;
-  }
-
-  /* 2. 컨텐츠도 세로 정렬 유지 */
-  .login__content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    height: 100%;
-  }
-
-  /* 3. 로그인 폼은 비율 맞추기 */
-  .login__forms {
-    width: 100%;
-    max-width: 360px;
-    margin-top: 1rem;
-    position: static; /* ✅ absolute 제거 효과 */
-  }
-
-  /* 4. 로그인 이미지 크게 표시 */
-  .login__img img {
-    width: 70%;
-    max-width: 240px;
-    margin-bottom: 2rem;
-  }
-
-  /* 5. 로그인 박스 내 글자 크기 키우기 */
-  .login__box input,
-  .login__input::placeholder {
-    font-size: 1.6rem;
-  }
-
-section#slider {
-    width: 100%;
-    box-sizing: border-box;
-  }
-
- .login__img {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 20px;
-    margin-bottom: 20px;
-  }
-
-  .login__img img {
-    width: 70%;
-    max-width: 300px;
-  }
-
-  .login__title {
-    font-size: 2.6rem; /* 📌 제목 크게 */
-  }
-
-  .login__input {
-    font-size: 2rem;  /* 📌 입력창 글씨 크게 */
-    padding: 1rem;
-  }
-
-  .login__button {
-    font-size: 2rem;
-    padding: 1rem;
-  }
-
-  .login__account,
-  .login__signin,
-  .login__signup,
-  .login__forgot {
-    font-size: 1.6rem;  /* 📌 부가 텍스트 크게 */
-  }
-  .login__register, .login__create {
-    padding: 2rem 1.5rem;
-    font-size: 1.6rem;
-  }
-
-  .login__box {
-    grid-template-columns: 1fr;
-    row-gap: 0.5rem;
-  }
-
-  .login__icon {
-    display: none; /* ✅ 모바일에선 아이콘 숨김 */
-  }
-
-  .email-box {
-    flex-direction: column; /* ✅ 입력창 + 버튼 세로 배치 */
-    align-items: stretch;
-  }
-
-  .email-check-button {
-    width: 100%;
-    margin-left: 0;
-    margin-top: 0.5rem;
-  }
-
-  .login__input {
-    font-size: 1.6rem;
-    padding: 0.8rem;
-  }
-
-  .login__title {
-    font-size: 2.4rem;
-  }
-
-  .login__button {
-    font-size: 1.6rem;
-    padding: 1rem;
-  }
-
-  .login__account, .login__signin, .login__signup {
-    font-size: 1.5rem;
-  }
-}
 /* The Modal (background) */
 .modal {
   display: none;
@@ -473,7 +94,6 @@ section#slider {
   width: 80%;
   font-size: 1.5rem;
   line-height: 1.6;
-  max-width: 50%;
 }
 
 /* Close Button */
@@ -491,254 +111,99 @@ section#slider {
   cursor: pointer;
 }
 
-/* Adjusting checkbox size and removing extra space */
-.login__checkbox {
-  width: 20px;
-  height: 20px;
-  vertical-align: middle;
-  margin-right: 3px; /* Reduced margin to bring label closer */
-}
-
-/* Adjusting font size and alignment for the label and link */
-.login__box label {
-  font-size: 1.5rem; /* Adjust the font size */
-  vertical-align: middle;
-  margin-right: 10px;
-  color: #23004d; /* Font color */
-}
-
-#privacy-link {
-  font-size: 1.5rem; /* Adjust the font size for the privacy link */
-  vertical-align: middle;
-  color: #4AD395;
-  margin-left: 10px;
-}
-
-/* 이메일 입력 필드와 중복 확인 버튼을 감싸는 박스 */
-.email-box {
-    display: flex;
-    align-items: center;
-}
-
-/* 중복 확인 버튼 스타일 */
-.email-check-button {
-    margin-left: 0.5rem;
-    padding: 1rem;
-    background-color: #4CAF50;
-    color: #fff;
-    font-size: 1.5rem;
-    font-weight: bold;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    height: 100%;
-}
-
-/* 버튼 호버 및 클릭 효과 */
-.email-check-button:hover {
-    background-color: #45a049;
-    transform: scale(1.05);
-}
-.email-check-button:active {
-    transform: scale(0.95);
-}
-
-/* 이메일 중복 확인 메시지 스타일 */
-.email-check-message {
-    color: #fff;
-    font-size: 1.3rem;
-    margin-top: 0.5rem;
-    text-align: left;
-}
-
-/* 비밀번호 찾기 전용 모달 스타일 */
-#forgotPasswordModal .modal-content {
-  background-color: #fff;
-  margin: 10% auto;
-  padding: 30px; 
-  border: 1px solid #888;
-  width: 90%; 
-  max-width: 500px;
-  font-size: 1.8rem;
-  border-radius: 10px; 
-}
-
-#forgotPasswordModal .login__box {
-  display: flex;
-  align-items: center; 
-  justify-content: space-between;
-  width: 100%;
-  margin-bottom: 15px; 
-}
-
-#forgotPasswordModal .login__box label {
-  font-size: 1.8rem;
-  font-weight: bold;
-  margin-right: 10px;
-  width: 25%;
-  text-align: right;
-}
-
-#forgotPasswordModal .login__box input {
-  font-size: 1.8rem;
-  padding: 10px;
-  width: 70%; 
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-#forgotPasswordModal .login__input {
-  font-size: 1.8rem;
-  padding: 10px; 
-  width: 100%;
-  border: 1px solid #ccc;
-  border-radius: 5px; 
-}
-
-#forgotPasswordModal button.login__button {
-  display: block; 
-  margin: 20px auto;
-  font-size: 1.8rem; 
-  padding: 10px 20px; 
-  background-color: #4AD395;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-#forgotPasswordModal button.login__button:hover {
-  background-color: #45a049;
-}
 </style>
-<section id="header">
-            <div class="header-area">
-			<div class="header_menu text-center" data-spy="affix" data-offset-top="50" id="nav">
-                    <div class="container">
-                        <nav class="navbar navbar-default zero_mp ">
-                            <!-- Brand and toggle get grouped for better mobile display -->
-                            <div class="navbar-header">
-                                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                                    <span class="sr-only">Toggle navigation</span>
-                                    <span class="icon-bar"></span>
-                                    <span class="icon-bar"></span>
-                                    <span class="icon-bar"></span>
-                                </button>
-                                <a class="navbar-brand custom_navbar-brand" href="/everybare.do"><img src="/static_uploads/img/logo.png" alt=""></a>
-                            </div>
-                            <!--End of navbar-header-->
-
-                            <!-- Collect the nav links, forms, and other content for toggling -->
-                            <div class="collapse navbar-collapse zero_mp" id="bs-example-navbar-collapse-1">
-                                <ul class="nav navbar-nav navbar-right main_menu">
-                                    <li><a href="/everybare.do#header">Home </a></li>
-                                    <li><a href="/everybare.do#volunteer">book</a></li>
-                                    <li class="active"><a href="/barelogin.do">login <span class="sr-only">(current)</span></a></li>
-                                    <li><a href="/everybare.do#contact_us" >contact us</a></li>
-                                </ul>
-                            </div>
-                            <!-- /.navbar-collapse -->
-                        </nav>
-                        <!--End of nav-->
-                    </div>
-                    <!--End of container-->
-                </div></div></section>
-                <section id="slider">
-  <div class="login">
-    <div class="login__content">
-      <div class="login__img">
-        <img src="/static_uploads/img/everybarre_login.jpg" alt="user login">
+<header>
+  <div class="header desktop-view">
+    <div class="header-inner">
+      <div class="logo">
+        <img src="/img/every-barre-logo.svg" alt="every barre" />
       </div>
-      <div class="login__forms">
-<!--         login form -->
-        <form action="" class="login__register" id="login-in">
-          <h1 class="login__title">Sign In</h1>
-          <div class="login__box">
-            <i class='bx bx-at login__icon'></i>
-            <input type="text" placeholder="Email" class="login__input">
-          </div>
-          <div class="login__box">
-            <i class='bx bx-lock login__icon'></i>
-            <input type="Password" placeholder="Password" class="login__input">
-          </div>
-          <a href="#" id="forgotPasswordLink" class="login__forgot">비밀번호를 잊어버리셨나요?</a>
-          
-          <a href="#" class="login__button">Sign In</a>
-          
-          <div>
-            <span class="login__account login__account--account">계정이 없으신가요?</span>
-            <span class="login__signin login__signin--signup" id="sign-up">Sign Up</span>
-          </div>
-          <!-- 비밀번호 찾기 모달 -->
-			<div id="forgotPasswordModal" class="modal">
+      <nav class="nav">
+        <ul>
+          <li><a href="/everybare.do">HOME</a></li>
+          <li><a href="/everybare.do">ABOUT</a></li>
+         <!--  <li><a href="#" onclick="document.getElementById('storeModal').style.display='flex'">BOOK</a></li> -->
+          <li><a href="/barelogin.do">LOGIN</a></li>
+          <li><a href="#contact">CONTACT US</a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+  <div class="mobile-view">
+  	  <div class="logo">
+        <img src="/img/every-barre-logo.svg" alt="every barre" />
+      </div>
+      <button class="menu-toggle" onclick="toggleMenu()">
+        <img id="menuIcon" src="/img/menu-icon.svg" alt="menu icon" />
+      </button>
+      <nav class="nav" id="mobileNav">
+        <a href="/everybare.do">HOME<span class="dot"></span></a>
+        <a href="#">ABOUT<span class="dot"></span></a>
+        <a href="/barelogin.do">LOGIN<span class="dot"></span></a>
+        <a href="#contact">CONTACT US<span class="dot"></span></a>
+      </nav>
+  </div>
+</header>
 
-        </form>
-        	<div class="modal-content">
-			    <span class="close">&times;</span>
-			    <h2>비밀번호 찾기</h2>
-			    <form id="forgotPasswordForm">
-			      <div class="login__box">
-			        <label for="resetName">이메일</label>
-			        <input type="text" id="resetName" class="login__input" required>
-			      </div>
-			      <div class="login__box">
-			        <label for="resetPhone">휴대폰 번호</label>
-			        <input type="text" id="resetPhone" class="login__input" required>
-			      </div>
-			      <button type="submit" class="login__button">임시 비밀번호 발급</button>
-			    </form>
-			    <p id="resetMessage"></p>
-			  </div>
-			</div>
-        
-<!--         create account form -->
-        <form action="" class="login__create none" id="login-up">
-          <h1 class="login__title">계정 생성</h1>
-          <div class="login__box">
-            <i class='bx bx-user login__icon'></i>
-            <input type="text" placeholder="Username" class="login__input">
-          </div>
-          
-          <div class="login__box email-box">
-			    <i class='bx bx-at login__icon'></i>
-			    <input type="text" id="signupEmail" placeholder="Email" class="login__input">
-			    <button id="checkEmailButton" type="button" class="email-check-button">중복확인</button>
-			</div>
-			<div id="emailCheckMessage" class="email-check-message"></div>
-
-          
-          <div class="login__box">
-            <i class='bx bx-lock login__icon'></i>
-            <input type="Password" placeholder="Password (8자리이상)" class="login__input">
-          </div>
-          <div class="login__box">
-            <i class='bx bx-lock login__icon'></i>
-            <input type="Password" placeholder="Password_Check" class="login__input">
+                <section id="slider">
+  <div>
+    <div class="login__content">
+        <form action="" id="login-in">
+        <section class="login-section">
+        <div class="main-inner">
+          <div class="login-container">
+            <div class="login-slogan desktop-view">
+              <img src="/img/login-slogan-image.svg" alt="move burn together" />
+            </div>
+			
+            <div class="login-box">
+              <h2>LOG IN</h2>
+              
+                <input type="text" placeholder="Email" required />
+                <input type="password" placeholder="Password" required />
+                <div id="forgotPasswordLink"  class="forgot-password">비밀번호를 잊어 버리셨나요?</div>
+                <button type="button" class="login__button">LOG IN</button>
+              
+              <p class="no-account">
+                계정이 없으신가요?
+                <a href="#" id="sign-up">SIGN IN</a>
+              </p>
+              <div id="forgotPasswordModal" class="modal">
+            </div>
           </div>
           
-          <div class="login__box">
-            <i class='bx bxs-cake login__icon'></i>
-            <input type="text" placeholder="Brith (예시 - 901125)" class="login__input">
           </div>
-
-          <div class="login__box">
-            <i class='bx bxs-phone login__icon'></i>
-            <input type="text" placeholder="Phone (예시 - 01012341234)" class="login__input">
-          </div>
-          <div class="login__box">
-          	<div>
-			  <input type="checkbox" id="agree" class="login__checkbox" style="margin:0;">
-			  <label for="agree" style="margin:0;">약관에 동의합니다</label>
-			  <a href="#" id="privacy-link">개인정보보호약관 보기</a></div>
-			</div>
-
-
-          <!-- https://ddorang-d.tistory.com/97 모달창 개인정보약관 -->
-          <a href="#" class="login__button">Sign Up</a>
-          			<!-- Modal Structure -->
-			<div id="privacyModal" class="modal">
+        </div>
+      </section>
+      </form>
+     
+	<form action="" id="login-up" class="none">
+		<section class="signup-section">
+            <div class="signup-box">
+              <h2>회원가입</h2>
+              
+                <input type="text" name="username" placeholder="Username" required />
+                <div class="email-wrap">
+                  <div class="email-contant">
+                    <input type="email" id="signupEmail" name="email" placeholder="Email" required />
+                    <button type="button" class="check-btn" id="checkEmailButton">중복확인</button>            
+                  </div>
+                  <div id="emailCheckMessage" class="email-check-message"></div>   
+                </div>
+                <input type="password" name="password" placeholder="Password 8자 이상" required />
+                <input type="password" name="passwordCheck" placeholder="Password Check" required />
+                <input type="text" name="birth" placeholder="Brith ex. 901125" />
+                <input type="text" name="phone" placeholder="Phone ex. 01012341234" />
+                <div class="terms-row">
+                  <label class="checkbox-label">
+                    <input type="checkbox" class="custom-checkbox" name="agree" id="agree" required />
+                    <span class="checkmark"></span>
+                    <span>약관에 동의합니다.</span>
+                  </label>
+                  <button type="button" class="terms-link" id="privacy-link">개인정보보호약관보기</button>
+                </div>
+                <button class="signup-btn login__button" type="button">SIGN UP</button>
+             <div id="privacyModal" class="modal">
 			  <div class="modal-content">
 			    <span class="close">&times;</span>
 			    <h2>개인정보보호약관</h2>
@@ -813,11 +278,13 @@ section#slider {
 
 			  </div>
 			</div>
-          <div>
-            <span class="login__account login__account--account">이미 계정이 있으신가요?</span>
-            <span class="login__signup login__signup--signup" id="sign-in">Sign In</span>
-          </div>          
-        </form>
+              <p class="signup-footer">
+                이미 계정이 있으신가요? <a href="#" id="sign-in">LOG IN</a>
+              </p>
+        </div>
+      </section>
+     </form>
+      
       </div>
     </div>
    </div></section>
@@ -880,14 +347,15 @@ const resetMessage = document.getElementById("resetMessage");
 
 // "비밀번호를 잊어버리셨나요?" 클릭 시 모달 열기
 forgotPasswordLink.addEventListener("click", (event) => {
-  event.preventDefault();
-  forgotPasswordModal.style.display = "block";
+//  event.preventDefault();
+//  forgotPasswordModal.style.display = "block";
+	 alert("관리자에게 문의해주세요.");
 });
 
 // 모달 닫기
-closeForgotPasswordModal.addEventListener("click", () => {
+/* closeForgotPasswordModal.addEventListener("click", () => {
   forgotPasswordModal.style.display = "none";
-});
+}); */
 
 // 모달 외부 클릭 시 닫기
 window.addEventListener("click", (event) => {
@@ -897,7 +365,7 @@ window.addEventListener("click", (event) => {
 });
 
 // 임시 비밀번호 발급 요청
-forgotPasswordForm.addEventListener("submit", (event) => {
+/* forgotPasswordForm.addEventListener("submit", (event) => {
   event.preventDefault();
 
   const name = document.getElementById("resetName").value.trim();
@@ -929,7 +397,7 @@ forgotPasswordForm.addEventListener("submit", (event) => {
       resetMessage.style.color = "red";
     },
   });
-});
+}); */
 
 function sendSms(message,phone) {
 
@@ -963,7 +431,7 @@ const passwordInput = document.querySelector("#login-in input[placeholder='Passw
 
 function handleLogin(event) {
     event.preventDefault(); // 기본 동작 방지
-
+	console.log("123");
     // 유효성 검사
     if (!emailInput.value) {
         alert("Email을 입력하세요.");
@@ -1019,8 +487,8 @@ passwordInput.addEventListener("keydown", (event) => {
   signupButton.addEventListener("click", (event) => {
     const usernameInput = document.querySelector("#login-up input[placeholder='Username']");
     const emailInput = document.querySelector("#login-up input[placeholder='Email']");
-    const passwordInput = document.querySelector("#login-up input[placeholder='Password (8자리이상)']");
-    const passwordCheckInput = document.querySelector("#login-up input[placeholder='Password_Check']");
+    const passwordInput = document.querySelector("#login-up input[placeholder='Password 8자 이상']");
+    const passwordCheckInput = document.querySelector("#login-up input[placeholder='Password Check']");
     const birthInput = document.querySelector("#login-up input[placeholder^='Brith']");
     const phoneInput = document.querySelector("#login-up input[placeholder^='Phone']");
     const agreeCheckbox = document.querySelector("#agree");
@@ -1164,7 +632,18 @@ passwordInput.addEventListener("keydown", (event) => {
 	        }
 	    });
 	});
-  
+  function toggleMenu() {
+      const nav = document.getElementById("mobileNav");
+      const icon = document.getElementById("menuIcon");
+      nav.classList.toggle("show");
+      if (nav.classList.contains("show")) {
+        icon.src = "/img/close-icon.svg";
+        icon.alt = "close icon";
+      } else {
+        icon.src = "/img/menu-icon.svg";
+        icon.alt = "menu icon";
+      }
+    }
 
 </script>
 </body>
